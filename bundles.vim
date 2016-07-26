@@ -20,15 +20,23 @@ Bundle 'gmarik/vundle'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'iamcco/markdown-preview.vim'
 
+"------------------
+" HTML/CSS代码快速编写
+"------------------
 Bundle 'mattn/emmet-vim'
+
+"------------------
+"补全括号和引号
+"------------------
 Bundle 'Raimondi/delimitMate'
 Bundle 'ervandew/supertab'
 
+"------------------
 " snippets
-"Bundle 'garbas/vim-snipmate'
+"------------------
+Bundle 'garbas/vim-snipmate'
 "Bundle 'honza/vim-snippets'
-
-"------ snipmate dependencies -------
+    "------ snipmate dependencies -------
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 
@@ -41,10 +49,14 @@ Bundle 'Lokaltog/vim-easymotion'
 "--------------
 " Fast editing
 "--------------
-Bundle 'tpope/vim-surround'
+" Bundle 'tpope/vim-surround'
+" 注释
 Bundle 'scrooloose/nerdcommenter'
+" 历史编辑
 Bundle 'sjl/gundo.vim'
+" 对齐
 Bundle 'godlygeek/tabular'
+" 缩进 (http://www.tuicool.com/articles/2yy6ze)
 Bundle 'nathanaelkane/vim-indent-guides'
 
 "--------------
@@ -54,20 +66,18 @@ Bundle 'scrooloose/nerdtree'
 " Bundle 'humiaozuzu/TabBar'
 Bundle 'majutsushi/tagbar'
 Bundle 'mileszs/ack.vim'
-" fast file finder by <C-p>
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-fugitive'
 
-"Bundle 'Lokaltog/vim-powerline'
+" Bundle 'Lokaltog/vim-powerline'
 Bundle 'bling/vim-airline'
-
-				" syntax check by :Error in vim
-"Bundle 'scrooloose/syntastic'
-
+" syntax check by :Error in vim
+Bundle 'scrooloose/syntastic'
+" 标记无效空格
 Bundle 'bronson/vim-trailing-whitespace'
 
 "-------------
-				" Other Utils
+" Other Utils
 "-------------
 " Bundle 'humiaozuzu/fcitx-status'
 Bundle 'nvie/vim-togglemouse'

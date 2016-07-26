@@ -296,27 +296,31 @@ let NERDSpaceDelims=1
 let NERDCompactSexyComs=1
 
 " ZenCoding
-" HTML5标签
-let g:user_emmet_expandabbr_key='<C-j>'
+" Emmet
+" let g:user_emmet_expandabbr_key='<C-j>'
+let g:user_emmet_expandabbr_key='<Leader>h'
 
 
 
 " powerline " air-line
 
-" NeoComplCache
-let g:neocomplcache_enable_at_startup=1
-let g:neoComplcache_disableautocomplete=1
+"-------- -------- -------- -------- -------- --------
+                " NeoComplCache
+"-------- -------- -------- -------- -------- --------
+" auto start
+" let g:neocomplcache_enable_at_startup=1
+" let g:neoComplcache_disableautocomplete=1
 "let g:neocomplcache_enable_underbar_completion = 1
 "let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_smart_case=1
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-set completeopt-=preview
+" let g:neocomplcache_enable_smart_case=1
+" let g:neocomplcache_min_syntax_length = 3
+" let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+" set completeopt-=preview
 
-imap <C-k> <Plug>(neocomplcache_snippets_force_expand)
-smap <C-k> <Plug>(neocomplcache_snippets_force_expand)
-imap <C-l> <Plug>(neocomplcache_snippets_force_jump)
-smap <C-l> <Plug>(neocomplcache_snippets_force_jump)
+" imap <C-k> <Plug>(neocomplcache_snippets_force_expand)
+" smap <C-k> <Plug>(neocomplcache_snippets_force_expand)
+" imap <C-l> <Plug>(neocomplcache_snippets_force_jump)
+" smap <C-l> <Plug>(neocomplcache_snippets_force_jump)
 
 
 " Enable omni completion.
@@ -515,4 +519,35 @@ let g:UltiSnipsSnippetDirectories=["mysnippets"]
 let g:UltiSnipsExpandTrigger="<Leader><tab>"
 let g:UltiSnipsJumpForwardTrigger="<Leader><tab>"
 let g:UltiSnipsJumpBackwardTrigger="<Leader><s-tab>"
+
+"-------- -------- -------- -------- -------- --------
+                " rainbow
+"-------- -------- -------- -------- -------- --------
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+
+" 不加入这行, 防止黑色括号出现, 很难识别
+" \ ['black',       'SeaGreen3'],
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
 

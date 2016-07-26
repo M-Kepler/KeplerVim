@@ -22,7 +22,10 @@ Default Leader is ` ; ` ,you can also change it in `.vimrc`
 </br> 目录树
 
 * NERDCommenter -------------------------------------------`<Leader>cc` & `<Leader>cu`
-</br> 快速注释
+</br> [快速注释](http://blog.csdn.net/zcube/article/details/42298419)
+
+* Tabular ---------------------------------------------------------`:Tab/=`
+</br>[任意对齐](http://blog.longwin.com.tw/2012/02/vim-align-text-plugin-tabular-2012/)
 
 * TagbarToggle -------------------------------------------------`<Leader>tg`
 </br> 代码结构
@@ -56,8 +59,11 @@ Default Leader is ` ; ` ,you can also change it in `.vimrc`
 </br> 文档修改记录
 
 * Ctrlp -------------------------------------------------------------`<leader>o`
-</br> 快速打开文件
+</br> [快速打开文件](http://www.boiajs.com/2014/12/17/vim-ctrlp)
 
+* Ctrlp -------------------------------------------------------------`<leader>o`
+* Emmet -------------------------------------------------------------`<leader>h`
+ </br>[HTML/CSS补全](http://www.iteye.com/news/27580)
 * 一键编译 -------------------------------------------------------`F6`
 </br> C,C++,Fortran,Python,java,Latex,sh等按`<F6>`编译
 

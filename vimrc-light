@@ -1,0 +1,343 @@
+/***********************************************************
+/* Author        : M_Kepler
+/* EMail         : hellohuangjinjie@gmail.com
+/* Last modified : 2016-03-20 23:01
+/* Filename      : vimrc_2016_3_4
+/* Description   :
+    F2:改变主题配色
+    F3:添加单行注释
+    F4:取消单行注释
+    F5:一键运行
+    F6:编译但不运行
+    F9:激活或取消paste模式
+    <space>:折叠
+/***********************************************************/
+
+"添加或更新头
+autocmd BufNewFile *.py :call AddTitle()
+function AddTitle()
+    call append(0,"#!/usr/bin/env python")
+    call append(1,"#_*_ coding:utf-8 _*_")
+    call append(2,"#Copyright © M_Kepler")
+    call append(3,"#CreateTime: ".strftime("%Y-%m-%d %H:%M:%S"))
+    call append(4,"")
+endf
+let python_highlight_all = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim 模式
+set nocompatible
+"侦测文件类型
+filetype on
+"载入文件类型插件
+filetype plugin on
+"为特定文件类型载入相关缩进文件
+filetype indent on
+
+" 设定窗口大小
+set lines=27 columns=80
+winpos 200 100
+
+" 光标移动到buffer的顶部和底部时保持3行距离
+set scrolloff=3
+
+" 显示当前标所在行线
+set cursorline
+
+"语法高亮
+syntax on
+
+"显示行号
+set nu
+
+" 自动设当前编辑的文件所在目录为当前工作路径
+set autochdir
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"颜色主题
+colorscheme ron
+let g:csnum = 0"定义全局变量用于切换颜色主题"
+"按<F2>键依次修改颜色主题
+map <F2> :call ChangeColorScheme()<CR>
+function! ChangeColorScheme()
+    if g:csnum == 0
+        :colorscheme torte
+        :let g:csnum = 1
+    elseif  g:csnum == 1
+        :colorscheme murphy
+        :let g:csnum = 2
+    elseif  g:csnum == 2
+        :colorscheme desert
+        :let g:csnum = 3
+    elseif  g:csnum == 3
+        :colorscheme murphy
+        :let g:csnum = 4
+    elseif  g:csnum == 4
+        :colorscheme delek
+        :let g:csnum = 5
+    elseif  g:csnum == 5
+        :colorscheme elflord
+        :let g:csnum = 6
+    elseif  g:csnum == 6
+        :colorscheme evening
+        :let g:csnum = 7
+    elseif  g:csnum == 7
+        :colorscheme koehler
+        :let g:csnum = 8
+    else
+        :colorscheme default
+        :let g:csnum = 0
+    endif
+endfunction
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"按下F3键添加单行注释符号(行首部)
+map <silent> <F3> :call AddFirstSingleComments()<CR>
+function AddFirstSingleComments()
+    if &filetype == 'sh'
+        :.,+0 s/^/#/
+    elseif &filetype == 'fortran'
+        :.,+0 s/^/!/
+    elseif &filetype == 'c'
+        :.,+0 s#^#//#
+    elseif &filetype == 'cpp'
+        :.,+0 s#^#//#
+    elseif &filetype == 'ncl'
+        :.,+0 s#^#;#
+    elseif &filetype == 'tex'
+        :.,+0 s#^#%#g
+    elseif &filetype == 'python'
+        :.,+0 s/^/#/
+    else
+        :.,+0 s/^/#/
+    endif
+endfunction
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"按下F4键取消单行注释符号(行首部)
+map <silent> <F4> :call RemoveFirstSingleComments()<CR>
+function RemoveFirstSingleComments()
+    if &filetype == 'sh'
+        :.,+0 s/^#//
+    elseif &filetype == 'fortran'
+        :.,+0 s/^!/ /
+    elseif &filetype == 'c'
+        :.,+0 s#^//##
+    elseif &filetype == 'ncl'
+        :.,+0 s#^;##
+    elseif &filetype == 'cpp'
+        :.,+0 s#^//##
+    elseif &filetype == 'tex'
+        :.,+0 s/^%//
+    elseif &filetype == 'python'
+        :.,+0 s/^#//
+    else
+        :.,+0 s/^#//
+    endif
+endfunction
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"允许退格键删除
+set backspace=2
+
+"启用鼠标
+set mouse=a
+set selection=exclusive
+set selectmode=mouse,key
+
+"设置高亮搜索
+set hlsearch
+"在搜索时，输入的词句的逐字符高亮
+set incsearch
+
+" 去掉按键错误提示
+set noerrorbells
+set novisualbell
+set t_vb=
+
+" 命令行（在状态行下）的高度，默认为1，这里是2
+set cmdheight=2
+
+" 带有如下符号的单词不要被换行分割
+set iskeyword+=_,$,@,%,#,-
+
+" 300 条操作历史记录
+set history=300
+
+" 列表模式, 显示tab及行尾空格
+set list
+set lcs=tab:>-,trail:-
+
+"按C语言格式缩进
+set cindent
+
+" 为C程序提供自动缩进
+set smartindent
+
+"设置Tab长度为4格
+set tabstop=4
+
+"设置自动缩进长度为4格
+set shiftwidth=4
+
+"继承前一行的缩进方式，特别适用于多行注释
+set autoindent
+
+" 高亮显示匹配的括号
+set showmatch
+"括号匹配显示时间为1(单位是十分之一秒)
+set matchtime=1
+
+"增强模式中的命令行自动完成操作
+set wildmenu
+
+" 关闭文件备份和交换文件生成
+set nobackup
+set nowb
+set noswapfile
+
+"行内替换
+set gdefault
+
+"设置字体GVIM
+"set guifont=Courier\ New\ 14,Arial\ 14
+set guifont=Consolas,Bitstream_Vera_Sans_Mono:h9:cANSI
+
+"编码设置
+set enc=utf-8
+set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
+
+"语言设置
+set langmenu=zh_CN.UTF-8
+set helplang=cn
+
+" 总是显示状态栏
+set laststatus=2
+
+" 状态栏格式
+set statusline=%F%m%r%h[%{&fileformat}]\ \ \ ASCII=\%b,HEX=\%B\ \ \ %c%V,%l/%L(%P)
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" normal模式下按Ctrl+F12建删除行尾空格和DOS换行符号
+nmap<silent> <F12>  :%s/\s*\r*$//g<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"C,C++,Fortran,Python,java,Latex,sh等按F6编译但是一般不要求运行
+map <F6> :call CompileALL()<CR>
+func! CompileALL()
+    :cd %:p:h
+    exec "w"
+    if &filetype == 'c'
+        exec "!g++ % -o %<"
+    elseif &filetype == 'cpp'
+        exec "!g++ % -o %<"
+    elseif &filetype == 'ncl'
+        exec "!ncl %"
+    elseif &filetype == 'java'
+        exec "!javac %"
+    elseif &filetype == 'fortran'
+        exec "!gfortran % -o %<"
+    elseif &filetype == 'python'
+        exec "!python %"
+    elseif &filetype == 'tex'
+        exec "!xelatex -shell-escape %<"
+        exec "!xelatex -shell-escape %<"
+    elseif &filetype == 'sh'
+        :!sh ./%
+    endif
+endfunc
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"C,C++,Fortran,Python,java,Latex,sh等按<F5>编译运行
+map <F5> :call CompileAndRun()<CR>
+func! CompileAndRun()
+    :cd %:p:h
+    exec "w"
+    if &filetype == 'c'
+        exec "!g++ % -o %<"
+        exec "! ./%<"
+    elseif &filetype == 'cpp'
+        exec "!g++ % -o %<"
+        exec "! ./%<"
+    elseif &filetype == 'ncl'
+        exec "!ncl %"
+    elseif &filetype == 'java'
+        exec "!javac %"
+        exec "!java %<"
+    elseif &filetype == 'fortran'
+        exec "!gfortran % -o %<"
+        exec "! ./%<"
+    elseif &filetype == 'python'
+        exec "!python %"
+    elseif &filetype == 'tex'
+        exec "!xelatex -shell-escape %<"
+        exec "!xelatex -shell-escape %<"
+    elseif &filetype == 'sh'
+        :!sh ./%
+    endif
+endfunc
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"C,C++的调试<F10>
+map <F10> :call Rungdb()<CR>
+func! Rungdb()
+    :cd %:p:h
+    exec "w"
+    exec "!g++ % -g -o %<"
+    exec "!gdb ./%<"
+endfunc
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+au BufRead,BufNewFile *  setfiletype txt
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 通过使用: commands命令，告诉我们文件的哪一行被改变过
+set report=0
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 在被分割的窗口间显示空白，便于阅读
+set fillchars=vert:\ ,stl:\ ,stlnc:\
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"代码格式化连续输入四个字符gg=G
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"如果只是想使用系统粘贴板的话直接在输入模式按Shift+Inset就可以了
+"下面只能值GVIM中使用,GVIM中支持系统剪切板
+"按Ctrl+C，再按一次y，复制一行，若按w则复制一个单词到系统剪切板
+map <c-c> "+y
+map <c-v> "+p
+
+"如果粘贴代码后，缩进就全乱了，可以使用下面的设置
+"set paste
+"绑定快捷键来激活or取消paste模式
+set pastetoggle=<F9>
+
+
+"=========================折叠================================
+"开启折叠，并设置空格开关
+set foldenable
+set foldmethod=syntax
+"设置折叠区宽度
+set foldcolumn=0
+"设置折叠层数
+setlocal foldlevel=1
+"设置自动关闭折叠
+"set foldclose=all
+"设置空格开关折叠
+nnoremap <space> @=((foldclosed(line('.'))<0)?'zc':'zo')<CR>
+"设置刚开始时不自动折叠
+set foldlevelstart=99
+"搜索和undo时不展开设置好的折叠
+set foldopen-=search
+set foldopen-=undo
+
+"设置竖直对齐线
+:set list lcs=tab:\¦\ 
+
+
+
+"配置vundle
+"set rtp+=~/.vim/bundle/vundle/
+"call vundle#rc()
+
+""使用ctags生成的tags文件
+let g:ycm_collect_identifiers_from_tag_files=1
+""启动时自动focus
+let g:tagbar_autofocus=1
+
+
+
+

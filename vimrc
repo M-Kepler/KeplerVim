@@ -27,18 +27,19 @@ let g:EasyMotion_leader_key = '<Leader>'
                     "Syntastic
 "-------- -------- -------- -------- -------- --------
 
-let g:syntastic_error_symbol='e>'
-let g:syntastic_warning_symbol='w>'
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
 let g:syntastic_always_populate_loc_list=1
-let g:syntastic_check_on_open=1
+let g:syntastic_check_on_open=0
 let g:syntastic_check_on_w=0
 let g:syntastic_auto_loc_list=0
-let g:syntastic_loc_list_height=6
+let g:syntastic_loc_list_height=5
 
 let g:syntastic_python_checkers=['pyflakes']
 
-nmap <Leader>e :Errors<cr>
-nmap <Leader>c :lclose<cr>
+" nmap <Leader>e :Errors<cr>
+nmap <Leader>e :lopen<cr>
+" nmap <Leader>c :lclose<cr>
 nmap <Leader>n :lnext<cr>
 nmap <Leader>p :lpre<cr>
 
@@ -123,16 +124,18 @@ set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 
 
 "-------- -------- -------- -------- -------- --------
-                    " Vim UI
+                    " ColorScheme
 "-------- -------- -------- -------- -------- --------
 syntax enable
 
-" set background=dark
-" colorscheme atom-dark-256
 colorscheme molokai
+" colorscheme monokai
 let g:Powerline_colorscheme='solarized256'
 
-" set background=dark
+" Bundle 'altercation/vim-colors-solarized'
+" let g:solarized_termtrans=1
+" let g:solarized_contrast='normal'
+" let g:solarized_visibility='normal'
 
 
 " highlight current line
@@ -158,6 +161,7 @@ set report=0                                                      " always repor
 set nowrap                                                        " dont wrap lines
 set scrolloff=5                                                   " 5 lines above/below cursor when scrolling
 set number                                                        " show line numbers
+set relativenumber
 set showmatch                                                     " show matching bracket (briefly jump)
 set showcmd                                                       " show typed command in status bar
 set title                                                         " show file in titlebar

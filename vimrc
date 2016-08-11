@@ -39,7 +39,7 @@ let g:syntastic_python_checkers=['pyflakes']
 
 " nmap <Leader>e :Errors<cr>
 nmap <Leader>e :lopen<cr>
-" nmap <Leader>c :lclose<cr>
+nmap <Leader>c :lclose<cr>
 nmap <Leader>n :lnext<cr>
 nmap <Leader>p :lpre<cr>
 

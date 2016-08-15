@@ -399,7 +399,7 @@ func! CompileAndRun()
         exec "!gfortran % -o %<"
         exec "! ./%<"
     elseif &filetype == 'python'
-        exec "!python %"
+        exec "!python3 %"
     elseif &filetype == 'tex'
         exec "!xelatex -shell-escape %<"
         exec "!xelatex -shell-escape %<"

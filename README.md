@@ -5,7 +5,7 @@
 </br>`git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle`
 
 2. Download this vim floder
-</br>`git clone https://github.com/M-Kepler/vim_backup.git`
+</br>`git clone https://github.com/M-Kepler/keplervim.git`
 
 3. Copy to `/home/user_name`
 </br>`cd vim_backup` </br>`cp * ~/.vim/` </br>`ln -s ~/.vim/vimrc ~/.vimrc`

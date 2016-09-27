@@ -119,6 +119,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 "-------------- -------------- -------------- -------------- --------------
 " Color Schemes
 "-------------- -------------- -------------- -------------- --------------
+Plugin 'crusoexia/vim-dracula'
 
 
 filetype plugin indent on     " required!

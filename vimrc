@@ -112,7 +112,7 @@ map <C-i> :call TitleDet() <cr>'s
 source ~/.vim/bundles.vim
 
 "set windows size
-set lines =28 columns=86
+set lines =25 columns=80
 winpos 200 100
 
 set nobackup
@@ -129,7 +129,12 @@ set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 syntax enable
 
 colorscheme molokai
+"
 " colorscheme monokai
+
+" colorschem dracula
+
+"
 let g:Powerline_colorscheme='solarized256'
 
 " Bundle 'altercation/vim-colors-solarized'
@@ -399,7 +404,8 @@ func! CompileAndRun()
         exec "!gfortran % -o %<"
         exec "! ./%<"
     elseif &filetype == 'python'
-        exec "!python3 %"
+        " for spider
+        exec "!python %"
     elseif &filetype == 'tex'
         exec "!xelatex -shell-escape %<"
         exec "!xelatex -shell-escape %<"

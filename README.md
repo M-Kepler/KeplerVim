@@ -12,13 +12,8 @@
 1. 安装插件管理Vundle
 </br>`git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle`
 
-<<<<<<< HEAD
 2. Clone或download我的keplervim
 </br>`git clone https://github.com/M-Kepler/Keplervim.git`
-=======
-2. Download this vim floder
-</br>`git clone https://github.com/M-Kepler/keplervim.git`
->>>>>>> d6dacff48d01558b7be44e3fc1758f0baae24ed9
 
 3. 把文件放到`/home/`目录下,并改名为`.vim`
 </br>`cd keplervim` </br>`cp * ~/` </br>`ln -s ~/.vim/vimrc ~/.vimrc`

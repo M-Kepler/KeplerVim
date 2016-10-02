@@ -1,10 +1,9 @@
 ***
-> * ***
 
 [TOC]
 # KeplerVim 介绍
 
-> 我的vim配置是````fork````自[skwp/dotfiles](https://github.com/skwp/dotfiles)的，只是做了自己的个性化更改,
+> 我的vim配置是来自[skwp/dotfiles](https://github.com/skwp/dotfiles)的，只是做了自己的个性化更改,
 去掉了很多不必要的插件,   
 使用的````YCM````编译后的文件, 来自[HERE](http://jikaichen.com)
 
@@ -71,15 +70,16 @@ ln -s ~/.vim/vimrc ~/.vimrc
 `<Leader>p`  jump to pre error</br>
 
 * Git ----------------------------------------------------------------`↓`
-`Gstatus` git status</br>
-`Gcommit`</br>
-`Glog`</br>
-`Gdiff`</br>
-`Gread`   git checkout -- filename</br>
-`Gwrite`  git add filename</br>
-`Gmove`   git mv</br>
-`Gremvoe` git rm</br>
-
+```
+`Gstatus` git status
+`Gcommit`
+`Glog`
+`Gdiff`
+`Gread`   git checkout -- filename
+`Gwrite`  git add filename
+`Gmove`   git mv
+`Gremvoe` git rm
+```
 
 * Gundo ----------------------------------------------------------`<Leader>u`
 </br> 很好用的插件，可以记录文档修改记录
@@ -101,6 +101,9 @@ ln -s ~/.vim/vimrc ~/.vimrc
 * 打开粘贴 -------------------------------------------------------`F2`
 </br>
 
+* 插入作者信息--------------------------------------------------`Ctrl+i`
+</br>
+自己的个人信息可以在vimrc修改
 ***
 
 
@@ -108,7 +111,7 @@ ln -s ~/.vim/vimrc ~/.vimrc
 
 | vim command | |
 |:-----|----:|:---:|
-|: `gD` |   跳转到局部变量定义处
+| `gd` |   跳转到局部变量定义处
 | `''`  | (两个单引号) 跳转到上次停靠处
 | `:earlier 10m` |  恢复到10分钟以前的状态
 | `ge`  | 移动到上一个单词的词未

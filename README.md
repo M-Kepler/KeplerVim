@@ -1,30 +1,47 @@
+***
+> * ***
 
-# 介绍
+[TOC]
+# KeplerVim 介绍
 
->我的vim配置是fork自[skwp/dotfiles](https://github.com/skwp/dotfiles)的，只是做了自己的个性化更改,
-去掉了很多不必要的插件
-使用的YCM编译后的文件来自[HERE](http://jikaichen.com)
+> 我的vim配置是````fork````自[skwp/dotfiles](https://github.com/skwp/dotfiles)的，只是做了自己的个性化更改,
+去掉了很多不必要的插件,   
+使用的````YCM````编译后的文件, 来自[HERE](http://jikaichen.com)
 
-这个配置主要用来写c++/python/java/shell/html5这些，配置了F5一键运行，没试过多大的项目，也就写过`flask`, 平时用来写写算法，demo
+这个配置主要用来写````c++/python/java/shell/html5````这些，配置了````F5````一键运行，没试过多大的项目，也就写过`flask`, 平时用来写写算法，demo
 
 
-## Install
-1. 安装插件管理Vundle
+## 安装
+1. 首先安装插件管理器```Vundle```
 </br>`git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle`
 
-2. Clone或download我的keplervim
+2. Clone 或 download 我的 keplervim.git
 </br>`git clone https://github.com/M-Kepler/Keplervim.git`
 
-3. 把文件放到`/home/`目录下,并改名为`.vim`
-</br>`cd keplervim` </br>`cp * ~/` </br>`ln -s ~/.vim/vimrc ~/.vimrc`
+3. 把文件夹放到 `/home/user_name` 目录下, 并改名为`.vim`
+```
+mv keplervim/ .vim/
+cd .vim
+ln -s ~/.vim/vimrc ~/.vimrc
+```
 
 4. 安装插件
-</br>终端输入`vim`, 不必管那些错误，一直回车进入到编辑界面就行
-</br>在normal模式下输入</br>`:BundleInstall`
 
-## 特色功能
-我的默认leader键为` ; `,你也可以在`.vimrc`里面修改
+```
+    这个。。有点尴尬。。额，你得先去编辑 ~/.vim/bundles.vim 
+把第20行 Plugin 'Valloric/YouCompleteMe'注释掉
 
+    然后保存退出, 终端输入`vim`, 不管提示的错误，一直回车进入到界面就行
+输入括号里的内容(:BundleInstall) 直到所有插件安装正确, 出错就再执行一次
+
+注:
+    由于自己编译YCM太麻烦了，而且不一定能成功，反正我的电脑上没成功.
+    所以下载别人编译后的YCM，然后放到 ~/.vim/bundle/ 下就可以了
+
+```
+
+## 功能和快捷键
+    我的默认```leader```键为` ; `,你也可以在`.vimrc`里面修改
 
 * NERDTreeToggle --------------------------------------------`<Leader>tn`
 </br> 目录树
@@ -86,7 +103,8 @@
 
 ***
 
-### 快捷键 ###
+
+### Vim Tips
 
 | vim command | |
 |:-----|----:|:---:|
@@ -104,14 +122,18 @@
 | `:Tx`	|  移动到光标后第一个x处
 
 
-## TIPS##
-
 1. 多行行首插入：   
-按下 gg 跳到第一行，按 Ctrl + v 进入列选择模式，再按 G，选中全文的第一列，然后按 I，进入列插入状态，输入星号 *，再按下 ESC，你会看到，所有行之前都出现了一个星号
+```
+按 Ctrl + v 进入列选择模式，选择需要行首插入的行
+然后按 I，进入列插入状态，
+输入星号 *，再按下 ESC
+你会看到，所有行之前都出现了一个星号
+```
 
 2. 多行行末插入：   
-`gg + Ctrl-v + G + $ + A + what_you_want`
-3. 统计字符:    
+`Ctrl-v + $ + A + input + esc`
+
+3. 统计:    
 `g<C-g>`
 
 

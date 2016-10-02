@@ -128,11 +128,10 @@ set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 "-------- -------- -------- -------- -------- --------
 syntax enable
 
-colorscheme molokai
-"
-" colorscheme monokai
 
-" colorschem dracula
+" colorscheme molokai
+" colorschem atom-dark-256
+colorschem dracula
 
 "
 let g:Powerline_colorscheme='solarized256'

@@ -18,6 +18,10 @@ Bundle 'gmarik/vundle'
 
 
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets' " 这个是作为ultisnips的配置文件来的
+
+
 Plugin 'iamcco/markdown-preview.vim'
 
 "------------------
@@ -28,7 +32,7 @@ Bundle 'mattn/emmet-vim'
 "------------------
 "补全括号和引号
 "------------------
-Bundle 'Raimondi/delimitMate'
+" Bundle 'Raimondi/delimitMate'
 Bundle 'ervandew/supertab'
 
 "------------------

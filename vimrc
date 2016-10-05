@@ -1,11 +1,11 @@
 
 " 让vim可以使用系统的剪切板
 set clipboard=unnamed
-
 let mapleader=";"
 
 "-------- -------- -------- -------- -------- --------
                     "fugitive
+"-------- -------- -------- -------- -------- --------
 "Gstatus git status
 "Gcommit git commit
 "Gdiff   git diff
@@ -34,7 +34,6 @@ let g:syntastic_check_on_open=0
 let g:syntastic_check_on_w=0
 let g:syntastic_auto_loc_list=0
 let g:syntastic_loc_list_height=5
-
 let g:syntastic_python_checkers=['pyflakes']
 
 " nmap <Leader>e :Errors<cr>
@@ -49,15 +48,15 @@ nmap <Leader>p :lpre<cr>
 "-------- -------- -------- -------- -------- --------
 set foldenable
 set foldmethod=syntax
+" set foldmethod=indent
 set foldcolumn=0
 setlocal foldlevel=1
-set foldclose=all
+" close fold auto
+" set foldclose=all
 set foldlevelstart=99
 set foldopen-=search
 set foldopen-=undo
-
 nnoremap <Space> @=((foldclosed(line('.'))<0)?'zc':'zo')<cr>
-
 " zm 折叠全部
 " zc 打开全部折叠
 
@@ -105,7 +104,12 @@ function TitleDet()
     call AddTitle()
 endfunction
 
-map <C-i> :call TitleDet() <cr>'s
+map <C-i> :call TitleDet() <cr>
+
+
+
+
+
 
 
 
@@ -520,11 +524,11 @@ nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
 nnoremap gd :YcmCompleter GoTo<CR>
 
 "-------- -------- -------- -------- -------- --------
-                " .cpp 和 .h间切换
+                " ultisnips
+"可.cpp 和 .h间切换
 "-------- -------- -------- -------- -------- --------
-" Plugin 'SirVer/ultisnips'
-nmap <silent> <Leader>sw :FSHere<cr>
-let g:UltiSnipsSnippetDirectories=["mysnippets"]
+let g:UltiSnipsSnippetDir = ["~/.vim/budle/UltiSnips"]
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 let g:UltiSnipsExpandTrigger="<Leader><tab>"
 let g:UltiSnipsJumpForwardTrigger="<Leader><tab>"
 let g:UltiSnipsJumpBackwardTrigger="<Leader><s-tab>"

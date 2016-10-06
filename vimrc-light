@@ -13,6 +13,7 @@
     <space>:折叠
 /***********************************************************/
 
+set relativenumber
 "添加或更新头
 autocmd BufNewFile *.py :call AddTitle()
 function AddTitle()
@@ -54,7 +55,7 @@ set nu
 set autochdir
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "颜色主题
-colorscheme ron
+colorscheme desert
 let g:csnum = 0"定义全局变量用于切换颜色主题"
 "按<F2>键依次修改颜色主题
 map <F2> :call ChangeColorScheme()<CR>
@@ -88,6 +89,7 @@ function! ChangeColorScheme()
         :let g:csnum = 0
     endif
 endfunction
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "按下F3键添加单行注释符号(行首部)
 map <silent> <F3> :call AddFirstSingleComments()<CR>

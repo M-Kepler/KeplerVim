@@ -1,6 +1,8 @@
 
 " 让vim可以使用系统的剪切板
 set clipboard=unnamed
+" 自动设当前编辑文件所在目录为当前工作目录
+set autochdir
 let mapleader=";"
 
 "-------- -------- -------- -------- -------- --------
@@ -43,22 +45,26 @@ nmap <Leader>n :lnext<cr>
 nmap <Leader>p :lpre<cr>
 
 
-"-------- -------- -------- -------- -------- --------
-                    "Fold
-"-------- -------- -------- -------- -------- --------
+"=========================折叠================================
+"开启折叠，并设置空格开关
 set foldenable
 set foldmethod=syntax
-" set foldmethod=indent
+"设置折叠区宽度
 set foldcolumn=0
+"设置折叠层数
 setlocal foldlevel=1
-" close fold auto
-" set foldclose=all
+"设置自动关闭折叠
+"set foldclose=all
+"设置空格开关折叠
+nnoremap <space> @=((foldclosed(line('.'))<0)?'zc':'zo')<CR>
+"设置刚开始时不自动折叠
 set foldlevelstart=99
+"搜索和undo时不展开设置好的折叠
 set foldopen-=search
 set foldopen-=undo
-nnoremap <Space> @=((foldclosed(line('.'))<0)?'zc':'zo')<cr>
-" zm 折叠全部
-" zc 打开全部折叠
+
+"设置竖直对齐线
+:set list lcs=tab:\¦\ 
 
 
 
@@ -133,9 +139,9 @@ set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 syntax enable
 
 
-" colorscheme molokai
+colorscheme molokai
 " colorschem atom-dark-256
-colorschem dracula
+" colorschem dracula
 
 "
 let g:Powerline_colorscheme='solarized256'
@@ -174,7 +180,7 @@ set showmatch                                                     " show matchin
 set showcmd                                                       " show typed command in status bar
 set title                                                         " show file in titlebar
 set laststatus=2                                                  " use 2 lines for the status bar
-set matchtime=2                                                   " show matching bracket for 0.2 seconds
+set matchtime=1                                                   " show matching bracket for 0.2 seconds
 set matchpairs+=<:>                                               " specially for html
 " set relativenumber
 

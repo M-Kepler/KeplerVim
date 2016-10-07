@@ -3,7 +3,8 @@
 [TOC]
 # KeplerVim 介绍
 
-![](http://images.cnblogs.com/cnblogs_com/tianjintou/890803/o_tree.png)
+![vim](http://images.cnblogs.com/cnblogs_com/tianjintou/890803/o_Screenshot%20from%202016-10-07%2011-59-15.png)
+
 > 我的vim配置是来自[skwp/dotfiles](https://github.com/skwp/dotfiles)的，只是做了自己的个性化更改,
 去掉了很多不必要的插件,   
 使用的````YCM````编译后的文件, 来自[HERE](http://jikaichen.com)

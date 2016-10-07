@@ -7,6 +7,7 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required!
 Bundle 'gmarik/vundle'
+" Bundle 'fholgado/minibufexpl.vim'
 
 "------------------
 " Code Completions
@@ -74,9 +75,12 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-fugitive'
 
 " Bundle 'Lokaltog/vim-powerline'
-Bundle 'bling/vim-airline'
+Bundle 'vim-airline/vim-airline'
+"
 " syntax check by :Error in vim
 Bundle 'scrooloose/syntastic'
+Bundle 'nvie/vim-flake8'
+
 " 标记无效空格
 Bundle 'bronson/vim-trailing-whitespace'
 

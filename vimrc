@@ -1,4 +1,3 @@
-
 " 让vim可以使用系统的剪切板
 set clipboard=unnamed
 " 自动设当前编辑文件所在目录为当前工作目录
@@ -7,7 +6,7 @@ let mapleader=";"
 
 "-------- -------- -------- -------- -------- --------
                     "fugitive
-"-------- -------- -------- -------- -------- --------
+"-------- -------- -------- -------- -------- - -------
 "Gstatus git status
 "Gcommit git commit
 "Gdiff   git diff
@@ -31,14 +30,21 @@ let g:EasyMotion_leader_key = '<Leader>'
 
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
+let g:syntastic_aggregate_errors=1
+" 自动调用:syntasticsetloclist, 将错误覆盖"qiuckfix"
 let g:syntastic_always_populate_loc_list=1
-let g:syntastic_check_on_open=0
-let g:syntastic_check_on_w=0
-let g:syntastic_auto_loc_list=0
-let g:syntastic_loc_list_height=5
-let g:syntastic_python_checkers=['pyflakes']
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_w=1
+" 是否自动弹出关闭错误窗口
+let g:syntastic_auto_loc_list=1
+" 鼠标悬停显示错误
+let g:syntastic_enable_balloons=1
 
-" nmap <Leader>e :Errors<cr>
+let g:syntastic_loc_list_height=5
+"
+" vim-quick python代码检查插件
+let g:pyflakes_use_quickfix=1
+
 nmap <Leader>e :lopen<cr>
 nmap <Leader>c :lclose<cr>
 nmap <Leader>n :lnext<cr>
@@ -64,7 +70,7 @@ set foldopen-=search
 set foldopen-=undo
 
 "设置竖直对齐线
-:set list lcs=tab:\¦\ 
+" :set list lcs=tab:\¦\ 
 
 
 
@@ -139,17 +145,33 @@ set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 syntax enable
 
 
+" colorscheme default
 colorscheme molokai
-" colorschem atom-dark-256
-" colorschem dracula
+" colorscheme atom-dark-256
+" colorscheme dracula
+" colorscheme desert
 
+"-------- -------- -------- -------- -------- --------
+                    " Air-line
+"-------- -------- -------- -------- -------- --------
+" let g:airline_colorscheme='solarized256'
+let g:airline_powerline_fonts=1
+let g:airline_thmem='solarized256'
+" 显示上面的buffer tab
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show=1
+" let g:airline#extensions#tabline#left_alt_sep ='|'
 "
-let g:Powerline_colorscheme='solarized256'
+nnoremap <Leader>bn :bn<cr>
+nnoremap <Leader>bp :bp<cr>
+" nnoremap <Leader>ob :tabnew<cr>
 
-" Bundle 'altercation/vim-colors-solarized'
-" let g:solarized_termtrans=1
-" let g:solarized_contrast='normal'
-" let g:solarized_visibility='normal'
+"-------- -------- -------- -------- -------- --------
+                    " quickfix
+"-------- -------- -------- -------- -------- --------
+
+
+
 
 
 " highlight current line
@@ -319,28 +341,6 @@ let NERDCompactSexyComs=1
 let g:user_emmet_expandabbr_key='<Leader>h'
 
 
-
-" powerline " air-line
-
-"-------- -------- -------- -------- -------- --------
-                " NeoComplCache
-"-------- -------- -------- -------- -------- --------
-" auto start
-" let g:neocomplcache_enable_at_startup=1
-" let g:neoComplcache_disableautocomplete=1
-"let g:neocomplcache_enable_underbar_completion = 1
-"let g:neocomplcache_enable_camel_case_completion = 1
-" let g:neocomplcache_enable_smart_case=1
-" let g:neocomplcache_min_syntax_length = 3
-" let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-" set completeopt-=preview
-
-" imap <C-k> <Plug>(neocomplcache_snippets_force_expand)
-" smap <C-k> <Plug>(neocomplcache_snippets_force_expand)
-" imap <C-l> <Plug>(neocomplcache_snippets_force_jump)
-" smap <C-l> <Plug>(neocomplcache_snippets_force_jump)
-
-
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -369,14 +369,9 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 
+"目录树和代码结构
 nmap <Leader>tg :TagbarToggle<cr>
 nmap <Leader>tn :NERDTreeToggle<cr>
-" buffer 切换快捷键
-map <Leader>bl :MBEToggle<cr>
-noremap <C-Tab> :MBEbn<CR>
-noremap <C-S-Tab> :MBEbp<CR>
-noremap <Leader>fw :MBEbn<CR>
-noremap <Leader>bw :MBEbn<CR>
 
 " 文件撤销、重做
 nmap <Leader>u :GundoToggle<cr>

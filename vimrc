@@ -1,5 +1,4 @@
-" 让vim可以使用系统的剪切板
-set clipboard=unnamed
+set clipboard=unnamed " 让vim可以使用系统的剪切板
 " 自动设当前编辑文件所在目录为当前工作目录
 set autochdir
 let mapleader=";"
@@ -15,7 +14,6 @@ let mapleader=";"
 "Gwrite  git add file_name
 "Gmove   git mv
 "Gremove git rm
-
 
 
 "-------- -------- -------- -------- -------- --------
@@ -83,7 +81,8 @@ set ttimeoutlen=0
 function AddTitle()
     call append(0,"/***********************************************************")
     call append(1,"* Author       : M_Kepler")
-    call append(2,"* EMail        : hellohuangjinjie@gmail.com")
+    " call append(2,"* EMail        : hellohuangjinjie@gmail.com")
+    call append(2,"* EMail        : m_kepler@foxmail.com")
     call append(3,"* Last modified: ".strftime("%Y-%m-%d %H:%M:%S"))
     call append(4,"* Filename     : ".expand("%:t"))
     call append(5,"* Description  :")
@@ -147,6 +146,7 @@ syntax enable
 
 " colorscheme default
 colorscheme molokai
+
 " colorscheme atom-dark-256
 " colorscheme dracula
 " colorscheme desert
@@ -159,12 +159,19 @@ let g:airline_powerline_fonts=1
 let g:airline_thmem='solarized256'
 " 显示上面的buffer tab
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show=1
-" let g:airline#extensions#tabline#left_alt_sep ='|'
 "
+"-------- -------- -------- -------- -------- --------
+                    " buffer
+"-------- -------- -------- -------- -------- --------
 nnoremap <Leader>bn :bn<cr>
 nnoremap <Leader>bp :bp<cr>
-" nnoremap <Leader>ob :tabnew<cr>
+" nnoremap <Leader>bc :bd<cr>
+nnoremap <Leader>x :bd<cr>
+" nnoremap <Leader>tn :tabnew<cr>
+nnoremap <Leader>1 :b1<cr>
+nnoremap <Leader>2 :b2<cr>
+nnoremap <Leader>3 :b3<cr>
+nnoremap <Leader>4 :b4<cr>
 
 "-------- -------- -------- -------- -------- --------
                     " quickfix

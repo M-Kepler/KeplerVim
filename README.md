@@ -5,11 +5,11 @@
 
 ![vim](http://images.cnblogs.com/cnblogs_com/tianjintou/890803/o_Screenshot%20from%202016-10-07%2011-59-15.png)
 
-> 我的vim配置是来自[skwp/dotfiles](https://github.com/skwp/dotfiles)的，只是做了自己的个性化更改,
-去掉了很多不必要的插件,   
-使用的````YCM````编译后的文件, 来自[HERE](http://jikaichen.com)
+我的vim配置是来自[skwp/dotfiles](https://github.com/skwp/dotfiles)的，只是做了自己的个性化更改,
+去掉了很多不必要的插件   
+使用的````YCM````编译后的文件,[网盘下载](https://pan.baidu.com/s/1jHOquKe)
 
-这个配置主要用来写````c++/python/java/shell/html5````这些，配置了````F5````一键运行，没试过多大的项目，也就写过`flask`, 平时用来写写算法，demo
+> 这个配置主要用来写````c++/python/java/shell/html5````这些，配置了````F5````一键运行，没试过多大的项目，也就写过`flask`, 平时用来写写算法，demo
 
 
 ## 安装
@@ -25,20 +25,18 @@ mv keplervim/ .vim/
 cd .vim
 ln -s ~/.vim/vimrc ~/.vimrc
 ```
-
 4. 安装插件
 
 ```
-    这个。。有点尴尬。。额，你得先去编辑 ~/.vim/bundles.vim 
-把第20行 Plugin 'Valloric/YouCompleteMe'注释掉
+这个。。有点尴尬。。额，你得先去编辑 ~/.vim/bundles.vim 把 Plugin 'Valloric/YouCompleteMe'注释掉
 
     然后保存退出, 终端输入`vim`, 不管提示的错误，一直回车进入到界面就行
 输入括号里的内容(:BundleInstall) 直到所有插件安装正确, 出错就再执行一次
+    这些插件安装完后在把 ~/.vim/bundles.vim 里的Plugin 'Valloric/YouCompeteMe' 的注释去掉就可以了
 
 注:
     由于自己编译YCM太麻烦了，而且不一定能成功，反正我的电脑上没成功.
     所以下载别人编译后的YCM，然后放到 ~/.vim/bundle/ 下就可以了
-
 ```
 
 ## 功能和快捷键
@@ -60,16 +58,22 @@ ln -s ~/.vim/vimrc ~/.vimrc
 </br> 自动补全
 
 * YouCompleteMe ---------------------------------------------`大名鼎鼎的YCM`
-</br>这个由于编译麻烦，且不一定成功，所以我copy了别人的来用
+```
+这个由于编译麻烦，且不一定成功，所以我copy了别人的来用
+```
 
 * markdown preview ------------------------------------------`:MarkdownPreview`
-</br> Markdown实时预览,配置中默认使用chrome打开预览
+```
+Markdown实时预览,Ubuntu下配置中默认使用chrome打开预览 .md文件来预览
+```
 
 * syntastic --------------------------------------------------------`<Leader>e`
-</br> 语法格式检查</br>
-`<Leader>c`  close errors windows</br>
-`<Leader>n`  jump to next error</br>
-`<Leader>p`  jump to pre error</br>
+```
+语法格式检查
+<Leader>c  close errors windows</br>
+<Leader>n  jump to next error</br>
+<Leader>p  jump to pre error</br>
+```
 
 * snippet--------------------------------------------------------`<Leader>Tab`
 </br>自动补全代码块，如你写入if， 按下<leader>Tab就会自动不全if的结构
@@ -98,19 +102,32 @@ ln -s ~/.vim/vimrc ~/.vimrc
  </br>[HTML/CSS补全](http://www.iteye.com/news/27580)
 
 * 一键编译 -------------------------------------------------------`F6`
-</br> C,C++,Fortran,Python,java,Latex,sh等按`<F6>`编译
+```
+C,C++,Fortran,Python,java,Latex,sh等按`<F6>`编译
+```
 
 * 一键运行 -------------------------------------------------------`F5`
-</br> C,C++,Fortran,Python,java,Latex,sh等按`<F5>`编译运行
+```
+C,C++,Fortran,Python,java,Latex,sh等按`<F5>`编译运行
+```
 
 * 打开粘贴 -------------------------------------------------------`F2`
-</br>
+```
 其实，不打开粘贴，也是可以直接将系统剪切板的内容粘贴到vim编辑器里的，而且格式不会乱
+```
 
 * 插入作者信息--------------------------------------------------`Ctrl+i`
-</br>
+```
 自己的个人信息可以在vimrc修改
-* TODO/FIXME
+```
+* buffer -----------------------------------------------------------``
+```
+:tab file_name tab打开新文件
+<Leader>x 关闭当前tab
+<Leader>bn next tab
+<Leader>bp 前一个tab
+```
+
 </br>
 HightLight TODO and FixMe
 
@@ -148,12 +165,4 @@ HightLight TODO and FixMe
 
 3. 统计:    
 `g<C-g>`
-
-
-
-
-
-
-
-
 

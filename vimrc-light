@@ -1,17 +1,23 @@
-/***********************************************************
-/* Author        : M_Kepler
-/* EMail         : hellohuangjinjie@gmail.com
-/* Last modified : 2016-03-20 23:01
-/* Filename      : vimrc_2016_3_4
-/* Description   :
-    F2:改变主题配色
-    F3:添加单行注释
-    F4:取消单行注释
-    F5:一键运行
-    F6:编译但不运行
-    F9:激活或取消paste模式
-    <space>:折叠
-/***********************************************************/
+"***********************************************************
+"* Author        : M_Kepler
+"* EMail         : hellohuangjinjie@gmail.com
+"/* Last modified : 2016-03-20 23:01
+"/* Filename      : vimrc_2016_3_4
+"/* Description   :
+"/*    F2:改变主题配色
+"/*    F3:添加单行注释
+"/*    F4:取消单行注释
+"/*    F5:一键运行
+"/*    F6:编译但不运行
+"/*    F9:激活或取消paste模式
+"/*    <space>:折叠
+"/***********************************************************/
+
+set clipboard=unnamed
+
+" autocmd BufRead,BufNewFile *.py,*.pyw,*.cpp,*.c,*.h math BadWhitespace /\s\+$/
+autocmd BufRead,BufWritePre *.cpp :%s/\s\+$//e
+
 
 set relativenumber
 "添加或更新头

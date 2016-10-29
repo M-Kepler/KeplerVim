@@ -1,8 +1,32 @@
-set clipboard=unnamed " 让vim可以使用系统的剪切板
+
+syntax on
+
+set clipboard=unnamed
+
+" 让vim可以使用系统的剪切板
 " 自动设当前编辑文件所在目录为当前工作目录
 set autochdir
 let mapleader=";"
 
+"
+" python with virtualenv support
+"
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+" -------- -------- -------- -------- -------- --------
+                "窗口分割
+"-------- -------- -------- -------- -------- --------
+set splitbelow
+set splitright
+
+"-------- -------- -------- -------- -------- --------
 "-------- -------- -------- -------- -------- --------
                     "fugitive
 "-------- -------- -------- -------- -------- - -------
@@ -61,6 +85,7 @@ setlocal foldlevel=1
 "set foldclose=all
 "设置空格开关折叠
 nnoremap <space> @=((foldclosed(line('.'))<0)?'zc':'zo')<CR>
+
 "设置刚开始时不自动折叠
 set foldlevelstart=99
 "搜索和undo时不展开设置好的折叠
@@ -139,13 +164,110 @@ set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 
 
 "-------- -------- -------- -------- -------- --------
-                    " ColorScheme
+                    " ColorScheme "按<F2>键依次修改颜色主题
 "-------- -------- -------- -------- -------- --------
-syntax enable
+" colorscheme default
+" colorscheme molokai
+
+" colorscheme atom-dark-256
+" colorscheme dracula
+" colorscheme desert
+
+let python_hithlight_all=1
+
+
+
+
+colorscheme molokai
+let g:csnum = 0
+"定义全局变量用于切换颜色主题"
+" map <F2> :call ChangeColorScheme()<CR>
+map <F2> :call ChangeColorScheme()<CR>
+function! ChangeColorScheme()
+    if g:csnum == 0
+        :colorscheme torte
+        :let g:csnum = 1
+    elseif  g:csnum == 1
+        :colorscheme murphy
+        :let g:csnum = 2
+    elseif  g:csnum == 2
+        :colorscheme desert
+        :let g:csnum = 3
+    elseif  g:csnum == 3
+        :colorscheme murphy
+        :let g:csnum = 4
+    elseif  g:csnum == 4
+        :colorscheme delek
+        :let g:csnum = 5
+    elseif  g:csnum == 5
+        :colorscheme elflord
+        :let g:csnum = 6
+    elseif  g:csnum == 6
+        :colorscheme evening
+        :let g:csnum = 7
+    elseif  g:csnum == 7
+        :colorscheme koehler
+        :let g:csnum = 8
+    elseif  g:csnm == 9
+        :colorscheme dracula
+    else
+        :colorscheme default
+        :let g:csnum = 0
+    endif
+endfunction
+
+
+
+
+
+"-------- -------- -------- -------- -------- --------
+                    " Air-line
+"-------- -------- -------- -------- -------- --------
+" let g:airline_colorscheme='solarized256'
+let g:airline_powerline_fonts=1
+let g:airline_thmem='solarized256'
+" 显示上面的buffer tab
+let g:airline#extensions#tabline#enabled = 1
+"
+"-------- -------- -------- -------- -------- --------
+                    " buffer
+"-------- -------- -------- -------- -------- --------
+nnoremap <Leader>bn :bn<cr>
+function! ChangeColorScheme()
+    if g:csnum == 0
+        :colorscheme torte
+        :let g:csnum = 1
+    elseif  g:csnum == 1
+        :colorscheme murphy
+        :let g:csnum = 2
+    elseif  g:csnum == 2
+        :colorscheme desert
+        :let g:csnum = 3
+    elseif  g:csnum == 3
+        :colorscheme murphy
+        :let g:csnum = 4
+    elseif  g:csnum == 4
+        :colorscheme delek
+        :let g:csnum = 5
+    elseif  g:csnum == 5
+        :colorscheme elflord
+        :let g:csnum = 6
+    elseif  g:csnum == 6
+        :colorscheme evening
+        :let g:csnum = 7
+    elseif  g:csnum == 7
+        :colorscheme koehler
+        :let g:csnum = 8
+    else
+        :colorscheme default
+        :let g:csnum = 0
+    endif
+endfunction
+
 
 
 " colorscheme default
-colorscheme molokai
+" colorscheme molokai
 
 " colorscheme atom-dark-256
 " colorscheme dracula
@@ -373,8 +495,8 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 
 " Keybindings for plugin toggle
 "绑定快捷键来激活or取消paste模式
-nnoremap <F2> :set invpaste paste?<CR>
-set pastetoggle=<F2>
+nnoremap <F9> :set invpaste paste?<CR>
+set pastetoggle=<F9>
 
 "目录树和代码结构
 nmap <Leader>tg :TagbarToggle<cr>

@@ -1,12 +1,13 @@
 
 syntax on
-
+" set wildmenu ?
 set clipboard=unnamed
 
 " 让vim可以使用系统的剪切板
 " 自动设当前编辑文件所在目录为当前工作目录
 set autochdir
 let mapleader=";"
+
 
 "
 " python with virtualenv support
@@ -27,7 +28,6 @@ set splitbelow
 set splitright
 
 "-------- -------- -------- -------- -------- --------
-"-------- -------- -------- -------- -------- --------
                     "fugitive
 "-------- -------- -------- -------- -------- - -------
 "Gstatus git status
@@ -41,7 +41,49 @@ set splitright
 
 
 "-------- -------- -------- -------- -------- --------
-                    "easy-motion
+"设置= + - * 前后自动空格
+"-------- -------- -------- -------- -------- --------
+au FileType python inoremap <buffer>, ,<space>
+let g:equ=1
+if exists("g:equ")
+    :inoremap << <c-r>=EqualSign('<<')<CR>
+    :inoremap < <c-r>=EqualSign('<')<CR>
+    :inoremap > <c-r>=EqualSign('>')<CR>
+    :inoremap >> <c-r>=EqualSign('>>')<CR>
+    :inoremap + <c-r>=EqualSign('+')<CR>
+    :inoremap - <c-r>=EqualSign('-')<CR>
+    :inoremap * <c-r>=EqualSign('*')<CR>
+    :inoremap / <c-r>=EqualSign('/')<CR>
+    :inoremap = <c-r>=EqualSign('=')<CR>
+    :inoremap += <c-r>=EqualSign('+=')<CR>
+endif
+
+function! EqualSign(char)
+    if a:char =~ '=' && getline('.') =~ ".*("
+        return a:char
+    endif
+    let ex1 = getline('.')[col('.') - 3]
+    let ex2 = getline('.')[col('.') - 2]
+    if ex1 =~ "[-=+><>\/\*]"
+        if ex2 !~ "\s"
+            return "\<ESC>i".a:char."\<SPACE>"
+        else
+            return "\<ESC>xa".a:char."\<SPACE>"
+        endif
+    else
+        if ex2 !~ "\s"
+            return "\<SPACE>".a:char."\<SPACE>\<ESC>a"
+        else
+            return a:char."\<SPACE>\<ESC>a"
+        endif
+    endif
+endf
+
+
+
+
+"-------- -------- -------- -------- -------- --------
+"easy-motion
 "-------- -------- -------- -------- -------- --------
 let g:EasyMotion_leader_key = '<Leader>'
 
@@ -166,19 +208,16 @@ set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 "-------- -------- -------- -------- -------- --------
                     " ColorScheme "按<F2>键依次修改颜色主题
 "-------- -------- -------- -------- -------- --------
+set background=dark
+"
+" colorscheme inkpot
 " colorscheme default
-" colorscheme molokai
-
+colorscheme molokai
 " colorscheme atom-dark-256
 " colorscheme dracula
 " colorscheme desert
 
 let python_hithlight_all=1
-
-
-
-
-colorscheme molokai
 let g:csnum = 0
 "定义全局变量用于切换颜色主题"
 " map <F2> :call ChangeColorScheme()<CR>
@@ -506,6 +545,7 @@ nmap <Leader>tn :NERDTreeToggle<cr>
 nmap <Leader>u :GundoToggle<cr>
 
 " 垂直对齐线IndentGuidesToggle<cr>
+
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size=1
 

@@ -130,6 +130,11 @@ Bundle 'kien/rainbow_parentheses.vim'
 Plugin 'crusoexia/vim-dracula'
 Plugin 'ciaranm/inkpot'
 
+"-------------- -------------- -------------- -------------- --------------
+"translation
+"-------------- -------------- -------------- -------------- --------------
+Plugin 'iamcco/dict.vim'
+
 
 filetype plugin indent on     " required!
 

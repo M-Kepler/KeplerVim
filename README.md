@@ -124,6 +124,11 @@ C,C++,Fortran,Python,java,Latex,sh等按`<F5>`编译运行
 * 特殊字符前后自动添加空格
 * buffer
 ```
+* 翻译vim编辑器里的文字
+
+
+
+
 :tab file_name tab打开新文件
 <Leader>x 关闭当前tab
 <Leader>bn next tab

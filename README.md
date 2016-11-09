@@ -111,7 +111,7 @@ C,C++,Fortran,Python,java,Latex,sh等按`<F6>`编译
 C,C++,Fortran,Python,java,Latex,sh等按`<F5>`编译运行
 ```
 
-* 打开粘贴 -------------------------------------------------------`F2`
+* 打开粘贴 -------------------------------------------------------`<Leader>p`
 ```
 其实，不打开粘贴，也是可以直接将系统剪切板的内容粘贴到vim编辑器里的，而且格式不会乱
 ```
@@ -123,18 +123,15 @@ C,C++,Fortran,Python,java,Latex,sh等按`<F5>`编译运行
 * 快速修改.vimrc--------------------------------------------------`<Leader>ev`
 * 特殊字符前后自动添加空格
 * buffer
+* 翻译vim编辑器里的文字--------------------------------------------`<Leader>d`
+* 括号自动补全
+
 ```
-* 翻译vim编辑器里的文字
-
-
-
-
 :tab file_name tab打开新文件
 <Leader>x 关闭当前tab
 <Leader>bn next tab
 <Leader>bp 前一个tab
 ```
-
 </br>
 HightLight TODO and FixMe
 

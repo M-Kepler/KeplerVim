@@ -9,8 +9,14 @@ set autochdir
 let mapleader=";"
 
 
-"
+inoremap ( ()<ESC>i
+inoremap [ []<ESC>i
+inoremap { {}<ESC>i
+inoremap < <><ESC>i
+
+" -------- -------- -------- -------- -------- --------
 " python with virtualenv support
+" -------- -------- -------- -------- -------- --------
 "
 py << EOF
 import os
@@ -34,9 +40,9 @@ nmap <silent> <Leader>d <Plug>DictSearch
 " -- 普通模式下，<Leader>d 即可翻译光标下的文本，并在命令行回显
 vmap <silent> <Leader>d <Plug>DictVSearch
 " -- 可视化模式下，<Leader>d 即可翻译选中的文本，并在命令行回显
-nmap <silent> <Plug>DictWSearch
+" nmap <silent> <Plug>DictWSearch
 " -- 普通模式下，<Leader>w 即可翻译光标下的文本，并且在Dict新窗口显示
-vmap <silent> <Plug>DictWVSearch
+" vmap <silent> <Plug>DictWVSearch
 " -- 可视化模式下，<Leader>w 即可翻译选中的文本，并且在Dict新窗口显示
 " -- :Dict word 在命令行回显
 " -- :DictW word 在一个分割窗口中显示
@@ -62,13 +68,13 @@ vmap <silent> <Plug>DictWVSearch
 au FileType python inoremap <buffer>, ,<space>
 let g:equ=1
 if exists("g:equ")
-    :inoremap << <c-r>=EqualSign('<<')<CR>
-    :inoremap >> <c-r>=EqualSign('>>')<CR>
-    :inoremap + <c-r>=EqualSign('+')<CR>
-    :inoremap - <c-r>=EqualSign('-')<CR>
-    :inoremap * <c-r>=EqualSign('*')<CR>
-    :inoremap = <c-r>=EqualSign('=')<CR>
-    :inoremap += <c-r>=EqualSign('+=')<CR>
+    " :inoremap << <c-r>=EqualSign('<<')<CR>
+    " :inoremap >> <c-r>=EqualSign('>>')<CR>
+    " :inoremap + <c-r>=EqualSign('+')<CR>
+    " :inoremap - <c-r>=EqualSign('-')<CR>
+    " :inoremap * <c-r>=EqualSign('*')<CR>
+    " :inoremap = <c-r>=EqualSign('=')<CR>
+    " :inoremap += <c-r>=EqualSign('+=')<CR>
 endif
 
 function! EqualSign(char)
@@ -547,7 +553,8 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 
 " Keybindings for plugin toggle
 "绑定快捷键来激活or取消paste模式
-nnoremap <F9> :set invpaste paste?<CR>
+" nnoremap <F9> :set invpaste paste?<CR>
+nnoremap <Leader>p :set invpaste paste?<CR>
 set pastetoggle=<F9>
 
 "目录树和代码结构

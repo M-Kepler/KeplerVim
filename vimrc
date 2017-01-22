@@ -36,9 +36,9 @@ set splitright
 " -------- -------- -------- -------- -------- --------
                 "翻译
 "-------- -------- -------- -------- -------- --------
-nmap <silent> <Leader>d <Plug>DictSearch
+nmap <silent> <Leader>fy <Plug>DictSearch
 " -- 普通模式下，<Leader>d 即可翻译光标下的文本，并在命令行回显
-vmap <silent> <Leader>d <Plug>DictVSearch
+vmap <silent> <Leader>fy <Plug>DictVSearch
 " -- 可视化模式下，<Leader>d 即可翻译选中的文本，并在命令行回显
 " nmap <silent> <Plug>DictWSearch
 " -- 普通模式下，<Leader>w 即可翻译光标下的文本，并且在Dict新窗口显示
@@ -70,10 +70,10 @@ let g:equ=1
 if exists("g:equ")
     " :inoremap << <c-r>=EqualSign('<<')<CR>
     " :inoremap >> <c-r>=EqualSign('>>')<CR>
-    " :inoremap + <c-r>=EqualSign('+')<CR>
+    :inoremap + <c-r>=EqualSign('+')<CR>
     " :inoremap - <c-r>=EqualSign('-')<CR>
     " :inoremap * <c-r>=EqualSign('*')<CR>
-    " :inoremap = <c-r>=EqualSign('=')<CR>
+    :inoremap = <c-r>=EqualSign('=')<CR>
     " :inoremap += <c-r>=EqualSign('+=')<CR>
 endif
 
@@ -240,7 +240,7 @@ let python_hithlight_all=1
 let g:csnum = 0
 "定义全局变量用于切换颜色主题"
 " map <F2> :call ChangeColorScheme()<CR>
-map <F2> :call ChangeColorScheme()<CR>
+map <Leader>yy :call ChangeColorScheme()<CR>
 function! ChangeColorScheme()
     if g:csnum == 0
         :colorscheme torte
@@ -590,6 +590,8 @@ func! CompileAndRun()
         exec "! ./%<"
     elseif &filetype == 'ncl'
         exec "!ncl %"
+    elseif &filetype == 'html'
+        exec "!google-chrome %"
     elseif &filetype == 'java'
         exec "!javac %"
         exec "!java %<"

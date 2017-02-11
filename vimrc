@@ -164,50 +164,44 @@ set ttimeoutlen=0
 "-------- -------- -------- -------- -------- --------
                     "title
 "-------- -------- -------- -------- -------- --------
-function AddTitle()
-    call append(0,"/***********************************************************")
-    call append(1,"* Author       : M_Kepler")
+" function AddTitle()
+    " call append(0,"/***********************************************************")
+    " call append(1,"* Author       : M_Kepler")
     " call append(2,"* EMail        : hellohuangjinjie@gmail.com")
-    call append(2,"* EMail        : m_kepler@foxmail.com")
-    call append(3,"* Last modified: ".strftime("%Y-%m-%d %H:%M:%S"))
-    call append(4,"* Filename     : ".expand("%:t"))
-    call append(5,"* Description  :")
-    call append(6,"**********************************************************/")
-    call append(7,"")
-    echohl WarningMsg | echo "Successful in adding the copyright."|echohl None
-endfunction
-" update latest modified time & name
-function UpdateTitle()
-    normal m'
-    execute '/* Last modified:/s@:.*$@\=strftime(": %Y-%m-%d %H:%M:%S")@'
-    normal ''
-    normal mk
-    execute '/* Filename     :/s@:.*$@\=": ".expand("%:t")@'
-    execute "noh"
-    normal 'k
-    echohl WarningMsg | echo "Successful in updating the copy right." | echohl None
-endfunction
-" 判断前10行代码里，是否有Last modified
-function TitleDet()
-    let n=1
-    while n < 10
-        let line = getline(n)
-        if line =~'^\*\s*\S*Last\smodified:\S*.*$'
-            call UpdateTitle()
-            return
-        endif
-        let n = n + 1
-    endwhile
-    call AddTitle()
-endfunction
+    " call append(2,"* EMail        : m_kepler@foxmail.com")
+    " call append(3,"* Last modified: ".strftime("%Y-%m-%d %H:%M:%S"))
+    " call append(4,"* Filename     : ".expand("%:t"))
+    " call append(5,"* Description  :")
+    " call append(6,"**********************************************************/")
+    " call append(7,"")
+    " echohl WarningMsg | echo "Successful in adding the copyright."|echohl None
+" endfunction
+" " update latest modified time & name
+" function UpdateTitle()
+    " normal m'
+    " execute '/* Last modified:/s@:.*$@\=strftime(": %Y-%m-%d %H:%M:%S")@'
+    " normal ''
+    " normal mk
+    " execute '/* Filename     :/s@:.*$@\=": ".expand("%:t")@'
+    " execute "noh"
+    " normal 'k
+    " echohl WarningMsg | echo "Successful in updating the copy right." | echohl None
+" endfunction
+" " 判断前10行代码里，是否有Last modified
+" function TitleDet()
+    " let n=1
+    " while n < 10
+        " let line = getline(n)
+        " if line =~'^\*\s*\S*Last\smodified:\S*.*$'
+            " call UpdateTitle()
+            " return
+        " endif
+        " let n = n + 1
+    " endwhile
+    " call AddTitle()
+" endfunction
 
-map <C-i> :call TitleDet() <cr>
-
-
-
-
-
-
+" map <C-i> :call TitleDet() <cr>
 
 
 source ~/.vim/bundles.vim
@@ -223,17 +217,16 @@ set noswapfile
 " encoding dectection
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 
-
 "-------- -------- -------- -------- -------- --------
-                    " ColorScheme "按<F2>键依次修改颜色主题
+                    " ColorScheme "按<Leader>yy键依次修改颜色主题
 "-------- -------- -------- -------- -------- --------
 set background=dark
 "
 " colorscheme inkpot
 " colorscheme default
-colorscheme molokai
+" colorscheme molokai
 " colorscheme atom-dark-256
-" colorscheme dracula
+colorscheme dracula
 " colorscheme desert
 
 let python_hithlight_all=1
@@ -421,7 +414,7 @@ let g:mkdp_auto_start = 0
 " set to 1: 检查预览窗口是否打开，否则自动打开
 let g:mkdp_auto_open = 0
 " 在切换buffer的时候自动关闭预览窗口
-let g:mkdp_auto_close = 1
+let g:mkdp_auto_close = 0
 " real-time preview
 let g:mkdp_refresh_slow = 0
 
@@ -599,7 +592,6 @@ func! CompileAndRun()
         exec "!gfortran % -o %<"
         exec "! ./%<"
     elseif &filetype == 'python'
-        " for spider
         exec "!python %"
     elseif &filetype == 'tex'
         exec "!xelatex -shell-escape %<"

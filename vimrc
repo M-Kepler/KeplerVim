@@ -226,7 +226,8 @@ set background=dark
 " colorscheme default
 " colorscheme molokai
 " colorscheme atom-dark-256
-colorscheme dracula
+" colorscheme dracula
+colorscheme space-vim-dark
 " colorscheme desert
 
 let python_hithlight_all=1
@@ -284,45 +285,7 @@ let g:airline#extensions#tabline#enabled = 1
                     " buffer
 "-------- -------- -------- -------- -------- --------
 nnoremap <Leader>bn :bn<cr>
-function! ChangeColorScheme()
-    if g:csnum == 0
-        :colorscheme torte
-        :let g:csnum = 1
-    elseif  g:csnum == 1
-        :colorscheme murphy
-        :let g:csnum = 2
-    elseif  g:csnum == 2
-        :colorscheme desert
-        :let g:csnum = 3
-    elseif  g:csnum == 3
-        :colorscheme murphy
-        :let g:csnum = 4
-    elseif  g:csnum == 4
-        :colorscheme delek
-        :let g:csnum = 5
-    elseif  g:csnum == 5
-        :colorscheme elflord
-        :let g:csnum = 6
-    elseif  g:csnum == 6
-        :colorscheme evening
-        :let g:csnum = 7
-    elseif  g:csnum == 7
-        :colorscheme koehler
-        :let g:csnum = 8
-    else
-        :colorscheme default
-        :let g:csnum = 0
-    endif
-endfunction
 
-
-
-" colorscheme default
-" colorscheme molokai
-
-" colorscheme atom-dark-256
-" colorscheme dracula
-" colorscheme desert
 
 "-------- -------- -------- -------- -------- --------
                     " Air-line

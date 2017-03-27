@@ -129,6 +129,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 "-------------- -------------- -------------- -------------- --------------
 Plugin 'crusoexia/vim-dracula'
 Plugin 'ciaranm/inkpot'
+Plugin 'jpo/vim-railscasts-theme'
 
 "-------------- -------------- -------------- -------------- --------------
 "translation

@@ -222,12 +222,14 @@ set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 "-------- -------- -------- -------- -------- --------
 set background=dark
 "
-" colorscheme inkpot
 " colorscheme default
+colorscheme space-vim-dark
+"
+" colorscheme inkpot
 " colorscheme molokai
 " colorscheme atom-dark-256
-" colorscheme dracula
-colorscheme space-vim-dark
+colorscheme dracula
+" colorscheme railscasts
 " colorscheme desert
 
 let python_hithlight_all=1
@@ -267,24 +269,6 @@ function! ChangeColorScheme()
         :let g:csnum = 0
     endif
 endfunction
-
-
-
-
-
-"-------- -------- -------- -------- -------- --------
-                    " Air-line
-"-------- -------- -------- -------- -------- --------
-" let g:airline_colorscheme='solarized256'
-let g:airline_powerline_fonts=1
-let g:airline_thmem='solarized256'
-" 显示上面的buffer tab
-let g:airline#extensions#tabline#enabled = 1
-"
-"-------- -------- -------- -------- -------- --------
-                    " buffer
-"-------- -------- -------- -------- -------- --------
-nnoremap <Leader>bn :bn<cr>
 
 
 "-------- -------- -------- -------- -------- --------

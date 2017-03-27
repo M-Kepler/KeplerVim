@@ -1,20 +1,17 @@
-***
-
-[TOC]
 # KeplerVim 介绍
 
-![vim](http://images.cnblogs.com/cnblogs_com/tianjintou/890803/o_Screenshot%20from%202016-10-07%2011-59-15.png)
+![preview](http://img.hb.aicdn.com/1145f538dad8cbe05adf3fbebd7e1d610f52e01f34324-TTfvzh_fw658)
 
 > 我的vim配置是来自[skwp/dotfiles](https://github.com/skwp/dotfiles)的，只是做了自己的个性化更改,
-去掉了很多不必要的插件   
-使用的````YCM````编译后的文件,[网盘下载](https://pan.baidu.com/s/1jHOquKe)
-
+> 去掉了很多不必要的插件   
+> 使用的````YCM````编译后的文件,[网盘下载](https://pan.baidu.com/s/1jHOquKe)
+>
 > 这个配置主要用来写````c++/python/java/shell/html5````这些，配置了````F5````一键运行
 
 
 ## 安装
 1. 首先安装插件管理```Vundle```
-</br>`git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle`
+</br>`git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle`
 
 2. git clone 或 download 我的 keplervim.git
 </br>`git clone https://github.com/M-Kepler/Keplervim.git`
@@ -156,8 +153,11 @@ Ctrl + <Leader>就可以选择粘贴系统剪切板的内容了
 | `:n`  |  跳到第n行
 | `:Tx`	|  移动到光标后第一个x处
 
+
 # 常用命令
+
 * 多行行首插入：   
+
 ```
 按 Ctrl + v 进入列选择模式，选择需要行首插入的行
 然后按 I，进入列插入状态，
@@ -170,4 +170,7 @@ Ctrl + <Leader>就可以选择粘贴系统剪切板的内容了
 
 * 统计:    
 g + ctrl + g
+
+* 输入过的命令:  
+```q:```
 

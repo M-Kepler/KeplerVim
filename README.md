@@ -1,35 +1,38 @@
 # KeplerVim 介绍
 
-![preview](http://img.hb.aicdn.com/1145f538dad8cbe05adf3fbebd7e1d610f52e01f34324-TTfvzh_fw658)
+![preview](./preview.png)
+
 
 > 我的vim配置是来自[skwp/dotfiles](https://github.com/skwp/dotfiles)的，只是做了自己的个性化更改,
 > 去掉了很多不必要的插件   
-> 使用的````YCM````编译后的文件,[网盘下载](https://pan.baidu.com/s/1jHOquKe)
->
+> 使用的````YCM````编译后的文件,[网盘下载](https://pan.baidu.com/s/1jHOquKe)  
 > 这个配置主要用来写````c++/python/java/shell/html5````这些，配置了````F5````一键运行
 
 
 ## 安装
-1. 首先安装插件管理```Vundle```
-</br>`git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle`
 
-2. git clone 或 download 我的 keplervim.git
+1. 下载本项目
 </br>`git clone https://github.com/M-Kepler/Keplervim.git`
 
-3. 把文件夹放到 Home 目录下, 并改名为`.vim`
+2. 把文件夹放到 Home 目录下, 并改名为`.vim`
 ```
-mv keplervim/ .vim/
+mv keplervim/ ~/.vim
 cd .vim
 ln -s ~/.vim/vimrc ~/.vimrc
 ```
-4. 安装插件<br />
-这个。。有点尴尬。。额，你得先去编辑 ~/.vim/bundles.vim 把 Plugin 'Valloric/YouCompleteMe'注释掉
-<br /> 然后保存退出, 终端输入`vim`, 不管提示的错误，一直回车进入到界面就行
-输入括号里的内容(:BundleInstall) 直到所有插件安装正确, 出错就再执行一次
-    这些插件安装完后在把 ~/.vim/bundles.vim 里的Plugin 'Valloric/YouCompeteMe' 的注释去掉就可以了
+
+3. 安装插件管理```Vundle```
+</br>`git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle`
+
+4. 安装插件  
+先去编辑 ```~/.vim/bundles.vim``` 把 ```Plugin 'Valloric/YouCompleteMe'```注释掉, 然后保存退出, 终端输入`vim`, 不管提示的错误，
+一直回车进入到界面就行, 输入括号里的内容```:BundleInstall``` 直到所有插件安装正确, 安装出错就再执行一次  
+这些插件安装完后在把 ~/.vim/bundles.vim 里的Plugin 'Valloric/YouCompeteMe' 的注释去掉就可以了
 <br />**注**:
-> 由于自己编译YCM太麻烦了，而且不一定能成功，反正我的电脑上没成功.
-    所以下载别人编译后的YCM，然后放到 ~/.vim/bundle/ 下就可以了
+> 由于自己编译YCM太麻烦了，而且不一定能成功，反正我的电脑上没成功.  
+> 所以下载别人编译后的YCM，然后放到 ~/.vim/bundle/ 下就可以了.  
+> 如果输入```vim```出错提示与```EOF```相关, 就先把```.vimrc``` 23 到 29 行注释掉, 这几行是为了补全```python```虚拟环境里的库用的
+
 ***
 ## 特色和快捷键
     我的默认```leader```键为` ; `,你也可以在`.vimrc`里面修改

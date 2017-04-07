@@ -229,7 +229,7 @@ colorscheme space-vim-dark
 " colorscheme inkpot
 " colorscheme molokai
 " colorscheme atom-dark-256
-colorscheme dracula
+" colorscheme dracula
 " colorscheme railscasts
 " colorscheme desert
 
@@ -276,8 +276,10 @@ endfunction
                     " Air-line
 "-------- -------- -------- -------- -------- --------
 " let g:airline_colorscheme='solarized256'
-let g:airline_powerline_fonts=1
-let g:airline_thmem='solarized256'
+"
+" let g:airline_powerline_fonts=1
+" let g:airline_thmem='solarized256'
+"
 " 显示上面的buffer tab
 let g:airline#extensions#tabline#enabled = 1
 "

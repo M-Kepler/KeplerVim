@@ -9,10 +9,10 @@ set autochdir
 let mapleader=";"
 
 
-inoremap ( ()<ESC>i
-inoremap [ []<ESC>i
-inoremap { {}<ESC>i
-inoremap < <><ESC>i
+" inoremap ( ()<ESC>i
+" inoremap [ []<ESC>i
+" inoremap { {}<ESC>i
+" inoremap < <><ESC>i
 
 " -------- -------- -------- -------- -------- --------
 " python with virtualenv support
@@ -105,6 +105,7 @@ endf
 "-------- -------- -------- -------- -------- --------
 "easy-motion
 "-------- -------- -------- -------- -------- --------
+"
 let g:EasyMotion_leader_key = '<Leader>'
 
 
@@ -221,22 +222,23 @@ set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 "-------- -------- -------- -------- -------- --------
                     " ColorScheme "按<Leader>yy键依次修改颜色主题
 "-------- -------- -------- -------- -------- --------
+" set background=light
 set background=dark
-"
+
+" colorscheme tir_black
 " colorscheme default
 colorscheme space-vim-dark
 "
-" colorscheme inkpot
 " colorscheme molokai
 " colorscheme atom-dark-256
-" colorscheme dracula
+colorscheme dracula
 " colorscheme railscasts
 " colorscheme desert
 
 let python_hithlight_all=1
 let g:csnum = 0
+
 "定义全局变量用于切换颜色主题"
-" map <F2> :call ChangeColorScheme()<CR>
 map <Leader>yy :call ChangeColorScheme()<CR>
 function! ChangeColorScheme()
     if g:csnum == 0
@@ -277,7 +279,7 @@ endfunction
 "-------- -------- -------- -------- -------- --------
 " let g:airline_colorscheme='solarized256'
 "
-" let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts=1
 " let g:airline_thmem='solarized256'
 "
 " 显示上面的buffer tab
@@ -507,10 +509,14 @@ nmap <Leader>tn :NERDTreeToggle<cr>
 " 文件撤销、重做
 nmap <Leader>u :GundoToggle<cr>
 
-" 垂直对齐线IndentGuidesToggle<cr>
 
+" 垂直对齐线IndentGuidesToggle<cr>
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size=1
+" let g:indent_guides_auto_colors=0
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg = red   ctermbg = 3
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg = green ctermbg = 4
+
 
 nmap <D-/> :
 nnoremap <leader>a :Ack
@@ -550,8 +556,10 @@ func! CompileAndRun()
         :!sh ./%
     endif
 endfunc
+
 "-------- -------- -------- -------- -------- --------
-                "C,C++,Fortran,Python,java,Latex,sh等按F6编译但是一般不要求运行
+                "C,C++,Fortran,Python,java,Latex,sh等
+                "按F6编译但是一般不要求运行
 "-------- -------- -------- -------- -------- --------
 map <F6> :call CompileALL()<CR>
 func! CompileALL()
@@ -577,9 +585,11 @@ func! CompileALL()
     endif
 endfunc
 
+
 "-------- -------- -------- -------- -------- --------
                     "C,C++的调试<F10>
 "-------- -------- -------- -------- -------- --------
+"
 map <C-r> :call Rungdb()<CR>
 func! Rungdb()
     :cd %:p:h
@@ -590,13 +600,24 @@ endfunc
 
 
 "-------- -------- -------- -------- -------- --------
+                    " Asyncrun.vim
+"-------- -------- -------- -------- -------- --------
+" 编译
+:noremap <F7> :AsyncRun gcc "%" -o "%<" <cr>
+
+
+"-------- -------- -------- -------- -------- --------
                     " Useful Functions
 "-------- -------- -------- -------- -------- --------
 " easier navigation between split windows
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
+" nnoremap <c-j> <c-w>j
+" nnoremap <c-k> <c-w>k
+" nnoremap <c-h> <c-w>h
+" nnoremap <c-l> <c-w>l
+nnoremap <Leader>wj <c-w>j
+nnoremap <Leader>wk <c-w>k
+nnoremap <Leader>wh <c-w>h
+nnoremap <Leader>wl <c-w>l
 
 " When editing a file, always jump to the last cursor position
 autocmd BufReadPost *
@@ -623,7 +644,9 @@ nnoremap ; :
 :command QA qa
 
 
-" Plugin 'Valloric/YouCompleteMe'
+"-------- -------- -------- -------- -------- --------
+                    " YouCompleteMe
+"-------- -------- -------- -------- -------- --------
 
 " YCM 补全菜单配色
 " 菜单

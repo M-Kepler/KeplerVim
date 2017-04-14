@@ -54,7 +54,7 @@ Bundle 'Lokaltog/vim-easymotion'
 "--------------
 " Fast editing
 "--------------
-" Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-surround'
 " 注释
 Bundle 'scrooloose/nerdcommenter'
 " 历史编辑
@@ -130,12 +130,15 @@ Bundle 'kien/rainbow_parentheses.vim'
 Plugin 'crusoexia/vim-dracula'
 Plugin 'ciaranm/inkpot'
 Plugin 'jpo/vim-railscasts-theme'
+Plugin 'tir_black'
 
 "-------------- -------------- -------------- -------------- --------------
 "translation
 "-------------- -------------- -------------- -------------- --------------
 Plugin 'iamcco/dict.vim'
 
+" asyncrun
+Plugin 'skywind3000/asyncrun.vim'
 
 filetype plugin indent on     " required!
 

@@ -1,9 +1,10 @@
 
 syntax on
 " set wildmenu ?
-set clipboard=unnamed
 
 " 让vim可以使用系统的剪切板
+set clipboard=unnamed
+
 " 自动设当前编辑文件所在目录为当前工作目录
 set autochdir
 let mapleader=";"
@@ -118,6 +119,7 @@ let g:syntastic_warning_symbol='⚠'
 let g:syntastic_aggregate_errors=1
 " 自动调用:syntasticsetloclist, 将错误覆盖"qiuckfix"
 let g:syntastic_always_populate_loc_list=1
+" 打开文件或保存时显示错误提示
 let g:syntastic_check_on_open=1
 let g:syntastic_check_on_w=1
 " 是否自动弹出关闭错误窗口
@@ -126,7 +128,7 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_enable_balloons=1
 
 let g:syntastic_loc_list_height=5
-"
+
 " vim-quick python代码检查插件
 let g:pyflakes_use_quickfix=1
 
@@ -231,7 +233,7 @@ colorscheme space-vim-dark
 "
 " colorscheme molokai
 " colorscheme atom-dark-256
-colorscheme dracula
+" colorscheme dracula
 " colorscheme railscasts
 " colorscheme desert
 
@@ -675,9 +677,14 @@ let g:ycm_cache_omnifunc=0
 " 语法关键字补全
 let g:ycm_seed_identifiers_with_syntax=1
 
-nnoremap <leader>jc :YcmCompleter GoToDeclaration<CR>
+
+
+" 跳转到声明
+nnoremap <Leader>gl :YcmCompleter GoToDeclaration<CR>
 " 只能是 #include 或已打开的文件
-nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
+" 跳转到定义
+nnoremap <Leader>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <Leader>gd :YcmCompleter GoTo<CR>
 nnoremap gd :YcmCompleter GoTo<CR>
 
 "-------- -------- -------- -------- -------- --------
@@ -689,6 +696,13 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 let g:UltiSnipsExpandTrigger="<Leader><tab>"
 let g:UltiSnipsJumpForwardTrigger="<Leader><tab>"
 let g:UltiSnipsJumpBackwardTrigger="<Leader><s-tab>"
+
+
+" -------- -------- -------- -------- -------- --------
+                    "  tasklist.vim
+" -------- -------- -------- -------- -------- --------
+nnoremap <Leader>tl :TaskList<cr>
+
 
 "-------- -------- -------- -------- -------- --------
                 " rainbow

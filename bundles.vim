@@ -140,5 +140,8 @@ Plugin 'iamcco/dict.vim'
 " asyncrun
 Plugin 'skywind3000/asyncrun.vim'
 
+" todo
+Plugin 'tasklist.vim'
+
 filetype plugin indent on     " required!
 

@@ -39,106 +39,32 @@ ln -s ~/.vim/vimrc ~/.vimrc
 
 * 我的默认```leader```键为` ; `,你也可以在`.vimrc`里面修改
 
-* NERDTreeToggle --------------------------------------------`<Leader>tn`
-</br>
-> 目录树
-
-* NERDCommenter -------------------------------------------`<Leader>cc` & `<Leader>cu`
-</br>
-> [快速注释](http://blog.csdn.net/zcube/article/details/42298419)
-
-* Tabular ---------------------------------------------------------`:Tab/=`
-</br>
-> [任意对齐](http://blog.longwin.com.tw/2012/02/vim-align-text-plugin-tabular-2012/)
-
-* TagbarToggle -------------------------------------------------`<Leader>tg`
-</br>
-> 代码结构
-
-* NeoComplete -------------------------------------------------`已知c、c++、python、java`
-</br>
-> 自动补全
-
-* YouCompleteMe ---------------------------------------------`大名鼎鼎的YCM`
-> 这个由于编译麻烦，且不一定成功，所以我copy了别人的来用
-
-* markdown preview ------------------------------------------`:MarkdownPreview`
-> Markdown实时预览,Ubuntu下配置中默认使用chrome打开预览 .md文件来预览
-
-* syntastic --------------------------------------------------------`<Leader>e`
-```
-语法格式检查
-<Leader>c  close errors windows</br>
-<Leader>n  jump to next error</br>
-<Leader>p  jump to pre error</br>
-```
-
-* snippet--------------------------------------------------------`<Leader>Tab`
-</br>
-> 自动补全代码块，如你写入if， 按下<leader>Tab就会自动不全if的结构
-
-* Git ----------------------------------------------------------------[官网](https://github.com/tpope/vim-fugitive)
-> 在vim里处理 ```git```
-
-* Gundo ----------------------------------------------------------`<Leader>u`
-</br>
-> 很好用的插件，可以记录文档修改记录
-
-* Ctrlp -------------------------------------------------------------`<leader>o`
-</br>
-> [快速打开文件](http://www.boiajs.com/2014/12/17/vim-ctrlp)
-
-* Ctrlp -------------------------------------------------------------`<leader>o`
-
-* Emmet -------------------------------------------------------------`<leader>h`
- </br>
- > [HTML/CSS补全](http://www.iteye.com/news/27580)
-
-* 一键编译 -------------------------------------------------------`F6`
-```
-C,C++,Fortran,Python,java,Latex,sh等按`<F6>`编译
-```
-
-* 一键运行 -------------------------------------------------------`F5`
-```
-C,C++,Fortran,Python,java,Latex,sh等按`<F5>`编译运行
-```
-
-* 打开粘贴 -------------------------------------------------------`<Leader>p`
-```
-其实，不打开粘贴，也是可以直接将系统剪切板的内容粘贴到vim编辑器里的，而且格式不会乱
-Ctrl + <Leader>就可以选择粘贴系统剪切板的内容了
-```
-
-* 插入作者信息--------------------------------------------------`Ctrl+i`
-```
-自己的个人信息可以在vimrc修改
-```
-
-* 快速修改.vimrc--------------------------------------------------`<Leader>ev`
-
-
-* 输入 + - / * =  < >可以自动在前后添加空格---------------这个有时候不好用,可以自己在vimrc里注释掉  
-
-
-* 翻译vim编辑器里的文字--------------------------------------------`<Leader>d`   
-
-* 括号自动补全---------------------------------没用插件,但基本的够了   
-
-* 忘了加```sudo```? -------------------------------```w!!```
-
-* 高亮TODO和FIXME   
-
-* 分割窗口的切换 ---------------------------------------------------- ```<Leader>wh\<Leader>wl```
-
-
-* 标签页  
-> ```
-:tab file_name tab打开新文件
-<Leader>x 关闭当前tab
-<Leader>bn next tab
-<Leader>bp 前一个tab
-```
+| PLUGINS| DESCRIPTION | HOW TO USE |
+| :---: | :---: | :---: |
+| `NERDTreeToggle` | 目录树 | `<Leader>tn`
+| `NERDCommenter` | [快速注释](http://blog.csdn.net/zcube/article/details/42298419) | `<Leader>cc` & `<Leader>cu`
+| `Tabular` | [任意对齐](http://blog.longwin.com.tw/2012/02/vim-align-text-plugin-tabular-2012/) | `Tab/=`
+| `TagbarToggle` | 代码结构 | `<Leader>tg`
+| `YouCompleteMe` | 大名鼎鼎的YCM | |
+| `markdown preview` |Markdown实时预览 | `:MarkdownPreview`
+| `syntastic` | [语法格式检查](#syntastic) | `<Leader>e`
+| `snippet` |  自动补全代码块 | `<Leader>Tab`
+| `fugitive` | [官网](https://github.com/tpope/vim-fugitive) | |
+| `Gundo` | 记录文档修改记录 | `<Leader>u`
+| `Ctrlp` | [快速打开文件](http://www.boiajs.com/2014/12/17/vim-ctrlp) | `<Leader>o`
+| `Emmet` | [HTML/CSS补全](http://www.iteye.com/news/27580) | `<Leader>h`
+|  | `C/C++/JAVA/PYTHON/SHELL` 一键编译 | `F6` |
+|  | `C/C++/JAVA/PYTHON/SHELL` 一键运行 | `F5`
+|  | 打开粘贴模式 | `<Leader>p`
+|  | 插入作者信息(已注释掉) | `Ctrl+i`
+|  | 快速修改`.vimrc` | `<Leader>ev`
+|  | 输入 + - / * =  < >可以自动在前后添加空格 | (已注释,vimrc里取消注释后生效)
+| `dict.vim` | 翻译当前光标下的单词 | `<Leader>fy`
+|  | 括号自动补全 | (已注释,vimrc里取消注释后生效)
+|  | 编辑时才发现要`sudo` | `w!!`
+| `tasklist` | `Eclipse`里的`TODO/FIXME/XXX` | `<Leader>tl`
+|  | 分割窗口的切换 |`<Leader>wh/j/k/l`
+|  | 标签页 | `<Leader>x`关闭 / `bn` / `bp`切换
 
 ### Vim 使用备忘
 
@@ -178,4 +104,32 @@ Ctrl + <Leader>就可以选择粘贴系统剪切板的内容了
 `Ctrl-v + $ + A + 想插入的字符 + esc`
 
 
+## 说明
 
+
+一键编译说明:
+
+```
+C,C++,Fortran,Python,java,Latex,sh等按`<F6>`编译
+```
+
+
+一键运行说明:
+```
+C,C++,Fortran,Python,java,Latex,sh等按`<F5>`编译运行
+```
+
+
+关于粘贴说明:
+
+```
+其实，不打开粘贴，也是可以直接将系统剪切板的内容粘贴到vim编辑器里的，而且格式不会乱
+Ctrl + <Leader>就可以选择粘贴系统剪切板的内容了
+```
+
+<span id = "syntastic">syntastic说明</span>
+```
+<Leader>c  close errors windows</br>
+<Leader>n  jump to next error</br>
+<Leader>p  jump to pre error</br>
+```

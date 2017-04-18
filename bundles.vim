@@ -71,6 +71,7 @@ Bundle 'scrooloose/nerdtree'
 " Bundle 'humiaozuzu/TabBar'
 Bundle 'majutsushi/tagbar'
 Bundle 'mileszs/ack.vim'
+" Bundle 'dyng/ctrlsf.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-fugitive'
 
@@ -134,7 +135,6 @@ Plugin 'tir_black'
 
 "-------------- -------------- -------------- -------------- --------------
 "translation
-"-------------- -------------- -------------- -------------- --------------
 Plugin 'iamcco/dict.vim'
 
 " asyncrun
@@ -142,6 +142,8 @@ Plugin 'skywind3000/asyncrun.vim'
 
 " todo
 Plugin 'tasklist.vim'
+
+
 
 filetype plugin indent on     " required!
 

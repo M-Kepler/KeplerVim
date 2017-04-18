@@ -18,16 +18,32 @@ let mapleader=";"
 " -------- -------- -------- -------- -------- --------
 " python with virtualenv support
 " -------- -------- -------- -------- -------- --------
-"
-"
 py << EOF
 import os
 import sys
 if 'VIRTUAL_ENV' in os.environ:
     project_base_dir = os.environ['VIRTUAL_ENV']
+    '''
+    add this
+    '''
+    sys.path.insert(0,project_base_dir)
     activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
     execfile(activate_this, dict(__file__=activate_this))
 EOF
+
+
+
+" -------- -------- -------- -------- -------- --------
+                "  auto add head info
+" -------- -------- -------- -------- -------- --------
+function HeaderPython()
+    call setline(1, "# !/usr/bin/env python")
+    call append(1, "# _*_ coding:utf-8")
+    normal G
+    normal o
+endf
+autocmd bufnewfile *.py call HeaderPython()
+
 
 " -------- -------- -------- -------- -------- --------
                 "窗口分割
@@ -39,6 +55,9 @@ set splitright
                 "翻译
 "-------- -------- -------- -------- -------- --------
 nmap <silent> <Leader>fy <Plug>DictSearch
+
+
+
 " -- 普通模式下，<Leader>d 即可翻译光标下的文本，并在命令行回显
 vmap <silent> <Leader>fy <Plug>DictVSearch
 " -- 可视化模式下，<Leader>d 即可翻译选中的文本，并在命令行回显
@@ -65,7 +84,7 @@ vmap <silent> <Leader>fy <Plug>DictVSearch
 
 "-------- -------- -------- -------- -------- --------
                     "autospace
-"设置= + - * 前后自动空格
+"设置= + - * 前后自动插入空格
 "-------- -------- -------- -------- -------- --------
 au FileType python inoremap <buffer>, ,<space>
 let g:equ=1
@@ -141,7 +160,7 @@ nmap <Leader>p :lpre<cr>
 "=========================折叠================================
 "开启折叠，并设置空格开关
 set foldenable
-set foldmethod=syntax
+set foldmethod=indent
 "设置折叠区宽度
 set foldcolumn=0
 "设置折叠层数
@@ -150,7 +169,6 @@ setlocal foldlevel=1
 "set foldclose=all
 "设置空格开关折叠
 nnoremap <space> @=((foldclosed(line('.'))<0)?'zc':'zo')<CR>
-
 "设置刚开始时不自动折叠
 set foldlevelstart=99
 "搜索和undo时不展开设置好的折叠
@@ -322,7 +340,6 @@ set smartcase
 " editor settings
 set history=1000
 set nocompatible
-set nofoldenable                                                  " disable folding"
 set confirm                                                       " prompt when existing from an unsaved file
 set backspace=indent,eol,start                                    " More powerful backspacing
 set t_Co=256                                                      " Explicitly tell vim that the terminal has 256 colors "
@@ -519,9 +536,8 @@ let g:indent_guides_guide_size=1
 " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg = red   ctermbg = 3
 " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg = green ctermbg = 4
 
-
 nmap <D-/> :
-nnoremap <leader>a :Ack
+nnoremap <leader>a :Ack -i<space>
 nnoremap <leader>v V`]
 
 

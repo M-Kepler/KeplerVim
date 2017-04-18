@@ -53,6 +53,7 @@ ln -s ~/.vim/vimrc ~/.vimrc
 | `Gundo` | 记录文档修改记录 | `<Leader>u`
 | `Ctrlp` | [快速打开文件](http://www.boiajs.com/2014/12/17/vim-ctrlp) | `<Leader>o`
 | `Emmet` | [HTML/CSS补全](http://www.iteye.com/news/27580) | `<Leader>h`
+| `ack.vim` | [整个工程下全局代码搜索](https://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/13430) | `<Leader>a`
 |  | `C/C++/JAVA/PYTHON/SHELL` 一键编译 | `F6` |
 |  | `C/C++/JAVA/PYTHON/SHELL` 一键运行 | `F5`
 |  | 打开粘贴模式 | `<Leader>p`
@@ -67,6 +68,8 @@ ln -s ~/.vim/vimrc ~/.vimrc
 |  | 标签页 | `<Leader>x`关闭 / `bn` / `bp`切换
 
 ### Vim 使用备忘
+
+[vim使用笔记](http://www.cnblogs.com/jiqingwu/archive/2012/06/14/vim_notes.html)
 
 | vim command | |
 |:-----|----:|:---:|
@@ -87,6 +90,7 @@ ln -s ~/.vim/vimrc ~/.vimrc
 | `ctrl + g`|查看当前位置
 | `g + ctrl + g` | 统计
 | `q:`  | 显示输入过的命令历史
+| `vim -M file_name`  | 只读形式打开文件
 
 
 ## 常用命令
@@ -103,6 +107,8 @@ ln -s ~/.vim/vimrc ~/.vimrc
 * 多行行末插入：   
 `Ctrl-v + $ + A + 想插入的字符 + esc`
 
+
+***
 
 ## 说明
 

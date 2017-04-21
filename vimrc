@@ -6,7 +6,8 @@ syntax on
 set clipboard=unnamed
 
 " 自动设当前编辑文件所在目录为当前工作目录
-set autochdir
+" set autochdir
+
 let mapleader=";"
 
 
@@ -445,6 +446,15 @@ let g:tagbar_width=30
 let g:tagbar_autofocus = 1
 let g:tagbar_sort = 0
 let g:tagbar_compact = 1
+" tag for markdown
+let g:tagbar_type_markdown = {
+            \ 'ctagstype' : 'markdown',
+            \ 'sort' : 0,
+            \ 'kinds' : [
+            \ 'h:sections'
+            \ ]
+            \ }
+
 " tag for coffee
 if executable('coffeetags')
     let g:tagbar_type_coffee = {
@@ -461,13 +471,6 @@ if executable('coffeetags')
                 \ }
                 \ }
 
-    let g:tagbar_type_markdown = {
-                \ 'ctagstype' : 'markdown',
-                \ 'sort' : 0,
-                \ 'kinds' : [
-                \ 'h:sections'
-                \ ]
-                \ }
 endif
 
 " Nerd Tree
@@ -678,8 +681,8 @@ let g:ycm_complete_in_comments=1
 let g:ycm_confirm_extra_conf=0
 " 开启 YCM 标签补全引擎
 let g:ycm_collect_identifiers_from_tags_files=1
-" 引入 C++ 标准库tags
-" set tags+=/data/misc/software/misc./vim/stdcpp.tags
+" 引入 C++ 标准库tags //于4月21更改于此
+set tags+=/data/misc/software/misc./vim/stdcpp.tags
 set tags+=~/.vim/stdcpp.tags
 set tags+=~/.vim/sys_tags
 " YCM 集成 OmniCppComplete 补全引擎，设置其快捷键

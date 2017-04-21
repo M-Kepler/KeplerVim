@@ -67,12 +67,13 @@ ln -s ~/.vim/vimrc ~/.vimrc
 |  | 分割窗口的切换 |`<Leader>wh/j/k/l`
 |  | 标签页 | `<Leader>x`关闭 / `bn` / `bp`切换
 
+
 ### Vim 使用备忘
 
-[vim使用笔记](http://www.cnblogs.com/jiqingwu/archive/2012/06/14/vim_notes.html)
 
-| vim command | |
-|:-----|----:|:---:|
+
+| vim command |[vim使用笔记](http://www.cnblogs.com/jiqingwu/archive/2012/06/14/vim_notes.html)  |
+|:-----:|:----:|:---:|
 | `gd` |   跳转到局部变量定义处
 | `''`  | (两个单引号) 跳转到上次停靠处
 | `:earlier 10m` |  恢复到10分钟以前的状态
@@ -85,7 +86,7 @@ ln -s ~/.vim/vimrc ~/.vimrc
 | `.`   |  重做
 | `:n`  |  跳到第n行
 | `:Tx`	|  移动到光标后第一个x处
-| `ma`  |
+| `ma`  | |
 | `gv`  |  重新选择曾选择过的文本块
 | `ctrl + g`|查看当前位置
 | `g + ctrl + g` | 统计

@@ -23,7 +23,6 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets' " 这个是作为ultisnips的配置文件来的
 
 
-Plugin 'iamcco/markdown-preview.vim'
 
 "------------------
 " HTML/CSS代码快速编写
@@ -109,8 +108,10 @@ Bundle 'kchmck/vim-coffee-script'
 " Bundle 'wavded/vim-stylus'
 " Bundle 'nono/vim-handlebars'
 
-				"------- markup language -------
+"------- markup language -------
 Bundle 'tpope/vim-markdown'
+Plugin 'iamcco/markdown-preview.vim'
+Plugin 'mzlogin/vim-markdown-toc'
 " Bundle 'timcharper/textile.vim'
 
 "------- Ruby --------

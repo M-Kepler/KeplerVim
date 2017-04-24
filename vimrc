@@ -230,25 +230,25 @@ set ttimeoutlen=0
 source ~/.vim/bundles.vim
 
 "set windows size
-set lines =25 columns=80
+" set lines =25 columns=80
+set lines =31 columns=110
 winpos 200 100
 
 set nobackup
 set nowb
 set noswapfile
-
 " encoding dectection
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 
 "-------- -------- -------- -------- -------- --------
                     " ColorScheme "按<Leader>yy键依次修改颜色主题
 "-------- -------- -------- -------- -------- --------
-" set background=light
-set background=dark
+set background=light
+" set background=dark
 
 " colorscheme tir_black
-" colorscheme default
-colorscheme space-vim-dark
+colorscheme default
+" colorscheme space-vim-dark
 "
 " colorscheme molokai
 " colorscheme atom-dark-256
@@ -375,10 +375,10 @@ set shiftwidth=4    " indent width
 "set smarttab
 set expandtab       " expand tab to space
 
+
 "-------- -------- -------- -------- -------- --------
                     "vim-markdown
 "-------- -------- -------- -------- -------- --------
-" Plugin 'iamcco/markdown-preview.vim'
 " set chrome path
 let g:mkdp_path_to_chrome = "google-chrome"
 " 设置不自动打开chrome预览
@@ -454,12 +454,19 @@ let g:tagbar_type_markdown = {
             \ 'h:sections'
             \ ]
             \ }
+let g:tagbar_type_html = {
+			\ 'ctagstype' : 'html',
+			\ 'kinds' : [
+			\ 'i:identifiers',
+			\ 'c:classes',
+			\ ],
+			\ }
 
 " tag for coffee
 if executable('coffeetags')
-    let g:tagbar_type_coffee = {
-                \ 'ctagsbin' : 'coffeetags',
-                \ 'ctagsargs' : '',
+	let g:tagbar_type_coffee = {
+				\ 'ctagsbin' : 'coffeetags',
+				\ 'ctagsargs' : '',
                 \ 'kinds' : [
                 \ 'f:functions',
                 \ 'o:object',
@@ -570,6 +577,8 @@ func! CompileAndRun()
         exec "! ./%<"
     elseif &filetype == 'python'
         exec "!python %"
+    elseif &filetype == 'markdown'
+        :MarkdownPreview
     elseif &filetype == 'tex'
         exec "!xelatex -shell-escape %<"
         exec "!xelatex -shell-escape %<"
@@ -685,6 +694,8 @@ let g:ycm_collect_identifiers_from_tags_files=1
 set tags+=/data/misc/software/misc./vim/stdcpp.tags
 set tags+=~/.vim/stdcpp.tags
 set tags+=~/.vim/sys_tags
+"
+"
 " YCM 集成 OmniCppComplete 补全引擎，设置其快捷键
 inoremap <leader>; <C-x><C-o>
 " 补全内容不以分割子窗口形式出现，只显示补全列表

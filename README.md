@@ -1,4 +1,7 @@
-# KeplerVim 简介
+
+
+## KeplerVim 简介
+
 
 ![preview](./preview.png)
 
@@ -29,15 +32,17 @@ ln -s ~/.vim/vimrc ~/.vimrc
 一直回车进入到界面就行, 输入括号里的内容```:BundleInstall``` 直到所有插件安装正确, 安装出错就再执行一次  
 这些插件安装完后在把 ~/.vim/bundles.vim 里的Plugin 'Valloric/YouCompeteMe' 的注释去掉就可以了
 
-### 注:
+5. ** 注** :
 > 1. 由于自己编译YCM太麻烦了，而且不一定能成功，反正我的电脑上没成功.  
-> 所以下载别人编译后的YCM，然后放到 ~/.vim/bundle/ 下就可以了.  
-> 如果输入```vim```出错提示与```EOF```相关, 就先把```.vimrc``` 23 到 29 行注释掉, 这几行是为了补全```python```虚拟环境里的库用的
+   所以下载别人编译后的YCM，然后放到 ~/.vim/bundle/ 下就可以了.  
+   如果输入```vim```出错提示与```EOF```相关, 就先把```.vimrc``` 23 到 29 行注释掉, 这几行是为了补全```python```虚拟环境里的库用的
 > 2. 想用漂亮的airline的话,去搜索一下就知道了, 需要安装特定的字体, [博客](http://blog.csdn.net/the_victory/article/details/50638810)
+
 
 ## 特色和快捷键
 
-* 我的默认```leader```键为` ; `,你也可以在`.vimrc`里面修改
+
+我的默认```leader```键为` ; `,你也可以在`.vimrc`里面修改
 
 | PLUGINS| DESCRIPTION | HOW TO USE |
 | :---: | :---: | :---: |
@@ -46,7 +51,7 @@ ln -s ~/.vim/vimrc ~/.vimrc
 | `Tabular` | [任意对齐](http://blog.longwin.com.tw/2012/02/vim-align-text-plugin-tabular-2012/) | `Tab/=`
 | `TagbarToggle` | 代码结构 | `<Leader>tg`
 | `YouCompleteMe` | 大名鼎鼎的YCM | |
-| `markdown preview` |Markdown实时预览 | `:MarkdownPreview`
+| `markdown preview` |Markdown实时预览 | `:MarkdownPreview 或 F5`
 | `syntastic` | [语法格式检查](#syntastic) | `<Leader>e`
 | `snippet` |  自动补全代码块 | `<Leader>Tab`
 | `fugitive` | [官网](https://github.com/tpope/vim-fugitive) | |
@@ -68,8 +73,7 @@ ln -s ~/.vim/vimrc ~/.vimrc
 |  | 标签页 | `<Leader>x`关闭 / `bn` / `bp`切换
 
 
-### Vim 使用备忘
-
+## Vim 使用备忘
 
 
 | vim command |[vim使用笔记](http://www.cnblogs.com/jiqingwu/archive/2012/06/14/vim_notes.html)  |
@@ -96,8 +100,8 @@ ln -s ~/.vim/vimrc ~/.vimrc
 
 ## 常用命令
 
-* 多行行首插入：   
 
+* 多行行首插入：   
 ```
 按 Ctrl + v 进入列选择模式，选择需要行首插入的行
 然后按 I，进入列插入状态，
@@ -109,34 +113,28 @@ ln -s ~/.vim/vimrc ~/.vimrc
 `Ctrl-v + $ + A + 想插入的字符 + esc`
 
 
-***
-
 ## 说明
 
 
-一键编译说明:
-
+* 一键编译说明 :
 ```
 C,C++,Fortran,Python,java,Latex,sh等按`<F6>`编译
 ```
 
-
-一键运行说明:
+* 一键运行说明 :
 ```
 C,C++,Fortran,Python,java,Latex,sh等按`<F5>`编译运行
 ```
 
-
-关于粘贴说明:
-
+* 关于粘贴说明 :
 ```
 其实，不打开粘贴，也是可以直接将系统剪切板的内容粘贴到vim编辑器里的，而且格式不会乱
 Ctrl + <Leader>就可以选择粘贴系统剪切板的内容了
 ```
 
-<span id = "syntastic">syntastic说明</span>
+* <span id = "syntastic">syntastic 说明</span>
 ```
-<Leader>c  close errors windows</br>
-<Leader>n  jump to next error</br>
-<Leader>p  jump to pre error</br>
+<Leader>c  close errors windows
+<Leader>n  jump to next error
+<Leader>p  jump to pre error
 ```

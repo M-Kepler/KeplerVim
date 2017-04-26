@@ -141,9 +141,11 @@ Plugin 'iamcco/dict.vim'
 " asyncrun
 Plugin 'skywind3000/asyncrun.vim'
 
-" todo
+" todo fixme xxx
 Plugin 'tasklist.vim'
 
+" debug
+Plugin 'idanarye/vim-vebugger'
 
 
 filetype plugin indent on     " required!

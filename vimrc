@@ -1,4 +1,52 @@
 
+python << EOF
+import time
+import vim
+def SetBreakpoint():
+    nLine = int( vim.eval( 'line(".")'))
+    strLine = vim.current.line
+    i = 0
+    strWhite = ""
+    while strLine[i] == ' ' or strLine[i] == "\t":
+        i += 1
+        strWhite += strLine[i]
+    vim.current.buffer.append(
+    # "%(space)spdb.set_trace() %(mark)s Breakpoint %(mark)s" %
+       "%(space)sipdb.set_trace() %(mark)s Breakpoint %(mark)s" %
+         {'space':strWhite, 'mark': '#' * 30}, nLine - 1)
+    for strLine in vim.current.buffer:
+        # if strLine == "import pdb":
+        if strLine == "import ipdb":
+            break
+        else:
+            # vim.current.buffer.append( 'import pdb', 0)
+            vim.current.buffer.append( 'import ipdb', 0)
+            vim.command( 'normal j1')
+            break
+vim.command( 'map <C-d> :py SetBreakpoint()<cr>')
+
+def RemoveBreakpoints():
+    nCurrentLine = int( vim.eval( 'line(".")'))
+    nLines = []
+    nLine = 1
+    for strLine in vim.current.buffer:
+        if strLine == 'import pdb' or strLine.lstrip()[:15] == 'pdb.set_trace()':
+            nLines.append( nLine)
+        nLine += 1
+    nLines.reverse()
+    for nLine in nLines:
+        vim.command( 'normal %dG' % nLine)
+        vim.command( 'normal dd')
+        if nLine < nCurrentLine:
+            nCurrentLine -= 1
+    vim.command( 'normal %dG' % nCurrentLine)
+vim.command( 'map <C-F8> :py RemoveBreakpoints()<cr>')
+# vim.command( 'map <C-D> :!python %<cr>')
+EOF
+
+
+let g:vebugger_leader = ','
+
 syntax on
 " set wildmenu ?
 
@@ -230,8 +278,8 @@ set ttimeoutlen=0
 source ~/.vim/bundles.vim
 
 "set windows size
-" set lines =25 columns=80
-set lines =31 columns=110
+set lines =25 columns=80
+" set lines =31 columns=110
 winpos 200 100
 
 set nobackup
@@ -243,8 +291,8 @@ set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 "-------- -------- -------- -------- -------- --------
                     " ColorScheme "按<Leader>yy键依次修改颜色主题
 "-------- -------- -------- -------- -------- --------
-set background=light
-" set background=dark
+" set background=light
+set background=dark
 
 " colorscheme tir_black
 colorscheme default
@@ -553,7 +601,7 @@ nnoremap <leader>v V`]
 
 
 "-------- -------- -------- -------- -------- --------
-                    "C,C++,Fortran,Python,java,Latex,sh等按<F5>编译运行
+"C,C++,Fortran,Python,java,Latex,sh等按<F5>编译运行
 "-------- -------- -------- -------- -------- --------
 map <F5> :call CompileAndRun()<CR>
 func! CompileAndRun()

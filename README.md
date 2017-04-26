@@ -15,7 +15,7 @@
 ## 安装
 
 1. 下载本项目
-</br>`git clone https://github.com/M-Kepler/Keplervim.git`
+<br/>`git clone https://github.com/M-Kepler/Keplervim.git`
 
 2. 把文件夹放到 Home 目录下, 并改名为`.vim`
 ```
@@ -29,7 +29,7 @@ ln -s ~/.vim/vimrc ~/.vimrc
 
 4. 安装插件  
 先去编辑 ```~/.vim/bundles.vim``` 把 ```Plugin 'Valloric/YouCompleteMe'```注释掉, 然后保存退出, 终端输入`vim`, 不管提示的错误，
-一直回车进入到界面就行, 输入括号里的内容```:BundleInstall``` 直到所有插件安装正确, 安装出错就再执行一次  
+一直回车进入到界面就行, 输入括号里的内容```:BundleInstall``` 直到所有插件安装正确, 安装出错就再执行一次.  
 这些插件安装完后在把 ~/.vim/bundles.vim 里的Plugin 'Valloric/YouCompeteMe' 的注释去掉就可以了
 
 5. ** 注** :
@@ -42,7 +42,11 @@ ln -s ~/.vim/vimrc ~/.vimrc
 ## 特色和快捷键
 
 
-我的默认```leader```键为` ; `,你也可以在`.vimrc`里面修改
+> 我的默认```leader```键为` ; `,你也可以在`.vimrc`里面修改.  
+
+> 表格中空白表示没有使用插件.  
+
+> ** 请注意查看最后面的 [说明](#note). **
 
 | PLUGINS| DESCRIPTION | HOW TO USE |
 | :---: | :---: | :---: |
@@ -59,16 +63,17 @@ ln -s ~/.vim/vimrc ~/.vimrc
 | `Ctrlp` | [快速打开文件](http://www.boiajs.com/2014/12/17/vim-ctrlp) | `<Leader>o`
 | `Emmet` | [HTML/CSS补全](http://www.iteye.com/news/27580) | `<Leader>h`
 | `ack.vim` | [整个工程下全局代码搜索](https://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/13430) | `<Leader>a`
+| `dict.vim` | 翻译当前光标下的单词 | `<Leader>fy`
+| `tasklist` | `Eclipse`里的`TODO/FIXME/XXX` | `<Leader>tl`
+|  | `python`程序的调试| `Ctrl + d插入断点并进入调试` |
+|  | 打开粘贴模式 | `<Leader>p`
 |  | `C/C++/JAVA/PYTHON/SHELL` 一键编译 | `F6` |
 |  | `C/C++/JAVA/PYTHON/SHELL` 一键运行 | `F5`
-|  | 打开粘贴模式 | `<Leader>p`
 |  | 插入作者信息(已注释掉) | `Ctrl+i`
 |  | 快速修改`.vimrc` | `<Leader>ev`
 |  | 输入 + - / * =  < >可以自动在前后添加空格 | (已注释,vimrc里取消注释后生效)
-| `dict.vim` | 翻译当前光标下的单词 | `<Leader>fy`
 |  | 括号自动补全 | (已注释,vimrc里取消注释后生效)
 |  | 编辑时才发现要`sudo` | `w!!`
-| `tasklist` | `Eclipse`里的`TODO/FIXME/XXX` | `<Leader>tl`
 |  | 分割窗口的切换 |`<Leader>wh/j/k/l`
 |  | 标签页 | `<Leader>x`关闭 / `bn` / `bp`切换
 
@@ -113,7 +118,7 @@ ln -s ~/.vim/vimrc ~/.vimrc
 `Ctrl-v + $ + A + 想插入的字符 + esc`
 
 
-## 说明
+##  <span id = "note">说明</span>
 
 
 * 一键编译说明 :
@@ -124,12 +129,15 @@ C,C++,Fortran,Python,java,Latex,sh等按`<F6>`编译
 * 一键运行说明 :
 ```
 C,C++,Fortran,Python,java,Latex,sh等按`<F5>`编译运行
+其中, python 程序是默认使用系统 python 版本(python2.7)的,
+你也可以在对应的地方改为 python3
 ```
 
 * 关于粘贴说明 :
 ```
-其实，不打开粘贴，也是可以直接将系统剪切板的内容粘贴到vim编辑器里的，而且格式不会乱
+其实，普通文本不打开粘贴，也是可以直接将系统剪切板的内容粘贴到vim编辑器里的，而且格式不会乱
 Ctrl + <Leader>就可以选择粘贴系统剪切板的内容了
+代码的话还是先打开粘贴模式,在粘贴
 ```
 
 * <span id = "syntastic">syntastic 说明</span>
@@ -138,3 +146,12 @@ Ctrl + <Leader>就可以选择粘贴系统剪切板的内容了
 <Leader>n  jump to next error
 <Leader>p  jump to pre error
 ```
+
+* vim 调试 python 的说明
+[vim和pdb](http://myroot.lofter.com/post/15197d_4ddfaa)
+```
+用 ipdb 的话把对应的pdb改为ipdb就可以了
+```
+
+
+

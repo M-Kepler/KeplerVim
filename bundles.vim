@@ -76,6 +76,7 @@ Bundle 'tpope/vim-fugitive'
 
 " Bundle 'Lokaltog/vim-powerline'
 Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 "
 " syntax check by :Error in vim
 Bundle 'scrooloose/syntastic'

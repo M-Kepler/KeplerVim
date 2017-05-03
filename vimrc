@@ -1,4 +1,14 @@
 
+"  _  __          _                    __     ___
+" | |/ /___ _ __ | | ___ _ __          \ \   / (_)_ __ ___
+" | ' // _ \ '_ \| |/ _ \ '__|  _____   \ \ / /| | '_ ` _ \ 
+" | . \  __/ |_) | |  __/ |    |_____|   \ V / | | | | | | |
+" |_|\_\___| .__/|_|\___|_|               \_/  |_|_| |_| |_|
+"          |_|
+
+let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
+
+
 python << EOF
 import time
 import vim
@@ -188,7 +198,7 @@ let g:syntastic_aggregate_errors=1
 " 自动调用:syntasticsetloclist, 将错误覆盖"qiuckfix"
 let g:syntastic_always_populate_loc_list=1
 " 打开文件或保存时显示错误提示
-let g:syntastic_check_on_open=1
+" let g:syntastic_check_on_open=1
 let g:syntastic_check_on_w=1
 " 是否自动弹出关闭错误窗口
 let g:syntastic_auto_loc_list=1
@@ -294,8 +304,8 @@ set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 " set background=light
 set background=dark
 
-" colorscheme tir_black
 colorscheme default
+" colorscheme tir_black
 " colorscheme space-vim-dark
 "
 " colorscheme molokai
@@ -346,11 +356,9 @@ endfunction
 "-------- -------- -------- -------- -------- --------
                     " Air-line
 "-------- -------- -------- -------- -------- --------
-" let g:airline_colorscheme='solarized256'
-"
 let g:airline_powerline_fonts=1
-" let g:airline_thmem='solarized256'
-"
+let g:airline_theme='light'
+
 " 显示上面的buffer tab
 let g:airline#extensions#tabline#enabled = 1
 "

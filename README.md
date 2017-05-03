@@ -1,4 +1,11 @@
-
+```
+ _  __          _                    __     ___
+| |/ /___ _ __ | | ___ _ __          \ \   / (_)_ __ __
+| ' // _ \ '_ \| |/ _ \ '__|  _____   \ \ / /| | '_ ` _ \ 
+| . \  __/ |_) | |  __/ |    |_____|   \ V / | | | | | | |
+|_|\_\___| .__/|_|\___|_|               \_/  |_|_| |_| |_|
+         |_|
+```
 
 ## KeplerVim 简介
 
@@ -81,7 +88,7 @@ ln -s ~/.vim/vimrc ~/.vimrc
 ## Vim 使用备忘
 
 
-| vim command |[vim使用笔记](http://www.cnblogs.com/jiqingwu/archive/2012/06/14/vim_notes.html)  |
+| vim command |[vim使用笔记](http://www.cnblogs.com/jiqingwu/archive/2012/06/14/vim_notes.html)|
 |:-----:|:----:|:---:|
 | `gd` |   跳转到局部变量定义处
 | `''`  | (两个单引号) 跳转到上次停靠处
@@ -116,6 +123,13 @@ ln -s ~/.vim/vimrc ~/.vimrc
 
 * 多行行末插入：   
 `Ctrl-v + $ + A + 想插入的字符 + esc`
+
+* [折叠命令](http://www.cnblogs.com/wangkangluo1/archive/2011/06/10/2077203.html)
+ * zc 折叠,只折叠最外层的折叠
+ * zo 展开,只展开最外层的折叠
+ * zC 对所在范围内所有嵌套的折叠点折叠，包括嵌套的折叠.
+ * zO 对所在范围内所有嵌套的折叠点展开，包括嵌套折叠.
+
 
 
 ##  <span id = "note">说明</span>
@@ -152,6 +166,5 @@ Ctrl + <Leader>就可以选择粘贴系统剪切板的内容了
 ```
 用 ipdb 的话把对应的pdb改为ipdb就可以了
 ```
-
 
 

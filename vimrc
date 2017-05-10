@@ -632,7 +632,7 @@ func! CompileAndRun()
         exec "!gfortran % -o %<"
         exec "! ./%<"
     elseif &filetype == 'python'
-        exec "!python %"
+        exec "!python3 %"
     elseif &filetype == 'markdown'
         :MarkdownPreview
     elseif &filetype == 'tex'

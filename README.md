@@ -7,6 +7,19 @@
          |_|
 ```
 
+## 目录
+
+<!-- vim-markdown-toc Redcarpet -->
+* [KeplerVim 简介](#keplervim-简介)
+* [安装](#安装)
+* [特色和快捷键](#特色和快捷键)
+* [Vim 使用备忘](#vim-使用备忘)
+* [常用命令](#常用命令)
+* [<span id = "note">说明</span>](#说明)
+
+<!-- vim-markdown-toc -->
+
+
 ## KeplerVim 简介
 
 
@@ -85,12 +98,12 @@ ln -s ~/.vim/vimrc ~/.vimrc
 |  | 标签页 | `<Leader>x`关闭 / `bn` / `bp`切换
 
 
+
 ## Vim 使用备忘
 
-
 | vim command |[vim使用笔记](http://www.cnblogs.com/jiqingwu/archive/2012/06/14/vim_notes.html)|
-|:-----:|:----:|:---:|
-| `gd` |   跳转到局部变量定义处
+|:-----:|:----:|
+| `gd` | 跳转到局部变量定义处|
 | `''`  | (两个单引号) 跳转到上次停靠处
 | `:earlier 10m` |  恢复到10分钟以前的状态
 | `ge`  | 移动到上一个单词的词未

@@ -1,0 +1,10 @@
+--langdef=markdown
+--langmap=markdown:.md
+--regex-markdown=/^#{1}[ \t]*([^#]+.*)/. \1/h,heading1/
+--regex-markdown=/^#{2}[ \t]*([^#]+.*)/.   \1/h,heading2/
+--regex-markdown=/^#{3}[ \t]*([^#]+.*)/.     \1/h,heading3/
+--regex-markdown=/^#{4}[ \t]*([^#]+.*)/.       \1/h,heading4/
+--regex-markdown=/^#{5}[ \t]*([^#]+.*)/.         \1/h,heading5/
+--regex-markdown=/^#{6}[ \t]*([^#]+.*)/.           \1/h,heading6/
+--regex-html = /id = \"([a-zA-Z0-9-+ )\"/\1/i,identifiers/
+--regex-html = /class= \"([a-zA-Z0-9-+ )\"/\1/c,classes/]]

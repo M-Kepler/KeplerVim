@@ -197,11 +197,14 @@ let g:syntastic_warning_symbol='⚠'
 let g:syntastic_aggregate_errors=1
 " 自动调用:syntasticsetloclist, 将错误覆盖"qiuckfix"
 let g:syntastic_always_populate_loc_list=1
+
 " 打开文件或保存时显示错误提示
 " let g:syntastic_check_on_open=1
 let g:syntastic_check_on_w=1
+"
 " 是否自动弹出关闭错误窗口
 let g:syntastic_auto_loc_list=1
+
 " 鼠标悬停显示错误
 let g:syntastic_enable_balloons=1
 

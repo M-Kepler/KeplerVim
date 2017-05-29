@@ -33,7 +33,8 @@
 
 
 ## 安装
-
+0. 编译安装vim8.0
+[博客](http://blog.csdn.net/a464057216/article/details/52821171)
 1. 下载本项目
 <br/>`git clone https://github.com/M-Kepler/Keplervim.git`
 

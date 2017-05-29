@@ -124,8 +124,6 @@ alias mv='mv -i'
 alias ..='cd ..'
 # alias python='/usr/bin/python3.5'
 
-eval "$(thefuck --alias)"
-eval "$(thefuck --alias FUCK)"
 
 cls() { cd "$1";ls;}
 mkcd() { mkdir -p "$1";cd "$1";}

@@ -80,6 +80,7 @@ Bundle 'vim-airline/vim-airline-themes'
 "
 " syntax check by :Error in vim
 Bundle 'scrooloose/syntastic'
+" Bundle 'w0rp/ale'
 Bundle 'nvie/vim-flake8'
 
 " 标记无效空格
@@ -140,13 +141,13 @@ Plugin 'tir_black'
 Plugin 'iamcco/dict.vim'
 
 " asyncrun
-Plugin 'skywind3000/asyncrun.vim'
+" Plugin 'skywind3000/asyncrun.vim'
 
 " todo fixme xxx
 Plugin 'tasklist.vim'
 
 " debug
-Plugin 'idanarye/vim-vebugger'
+" Plugin 'idanarye/vim-vebugger'
 
 
 filetype plugin indent on     " required!

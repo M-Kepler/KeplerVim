@@ -53,7 +53,15 @@ ln -s ~/.vim/vimrc ~/.vimrc
 一直回车进入到界面就行, 输入括号里的内容```:BundleInstall``` 直到所有插件安装正确, 安装出错就再执行一次.  
 这些插件安装完后在把 ~/.vim/bundles.vim 里的Plugin 'Valloric/YouCompeteMe' 的注释去掉就可以了
 
-5. ** 注** :
+5. 显示md文档的目录结构
+> 创建ctags的软链到home目录下
+```
+ln  -s ~/.vim/ctags ~/.ctags
+```
+
+
+
+6. ** 注** :
 > 1. 由于自己编译YCM太麻烦了，而且不一定能成功，反正我的电脑上没成功.  
    所以下载别人编译后的YCM，然后放到 ~/.vim/bundle/ 下就可以了.  
    如果输入```vim```出错提示与```EOF```相关, 就先把```.vimrc``` 23 到 29 行注释掉, 这几行是为了补全```python```虚拟环境里的库用的

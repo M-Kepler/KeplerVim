@@ -55,7 +55,7 @@ vim.command( 'map <C-F8> :py RemoveBreakpoints()<cr>')
 EOF
 
 
-let g:vebugger_leader = ','
+" let g:vebugger_leader = ','
 
 syntax on
 " set wildmenu ?
@@ -148,14 +148,15 @@ vmap <silent> <Leader>fy <Plug>DictVSearch
 au FileType python inoremap <buffer>, ,<space>
 let g:equ=1
 if exists("g:equ")
-    " :inoremap << <c-r>=EqualSign('<<')<CR>
-    " :inoremap >> <c-r>=EqualSign('>>')<CR>
-    :inoremap + <c-r>=EqualSign('+')<CR>
-    " :inoremap - <c-r>=EqualSign('-')<CR>
+    :inoremap << <c-r>=EqualSign('<<')<CR>
+    :inoremap >> <c-r>=EqualSign('>>')<CR>
+    " :inoremap + <c-r>=EqualSign('+')<CR>
+    :inoremap - <c-r>=EqualSign('-')<CR>
     " :inoremap * <c-r>=EqualSign('*')<CR>
     :inoremap = <c-r>=EqualSign('=')<CR>
-    " :inoremap += <c-r>=EqualSign('+=')<CR>
+    :inoremap += <c-r>=EqualSign('+=')<CR>
 endif
+
 
 function! EqualSign(char)
     if a:char =~ '=' && getline('.') =~ ".*("
@@ -188,12 +189,42 @@ endf
 let g:EasyMotion_leader_key = '<Leader>'
 
 
+
+
+"-------- -------- -------- -------- -------- --------
+                    "ALE
+"-------- -------- -------- -------- -------- --------
+" "ale
+" "始终开启标志列
+" let g:ale_sign_column_always = 1
+" let g:ale_set_highlights = 0
+" "自定义error和warning图标
+" let g:ale_sign_error = '✗'
+" let g:ale_sign_warning='⚠'
+" "在vim自带的状态栏中整合ale
+" let g:ale_statusline_format = ['✗ %d', '⚠ %d', '✔ OK']
+" "显示Linter名称,出错或警告等相关信息
+" let g:ale_echo_msg_error_str = 'E'
+" let g:ale_echo_msg_warning_str = 'W'
+" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" "普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
+" nmap sp <Plug>(ale_previous_wrap)
+" nmap sn <Plug>(ale_next_wrap)
+" "<Leader>s触发/关闭语法检查
+" nmap <Leader>s :ALEToggle<CR>
+" "<Leader>d查看错误或警告的详细信息
+" nmap <Leader>d :ALEDetail<CR>
+"
+"
+
 "-------- -------- -------- -------- -------- --------
                     "Syntastic
 "-------- -------- -------- -------- -------- --------
 
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
+
+" 第一时间检查发现任何错误
 let g:syntastic_aggregate_errors=1
 " 自动调用:syntasticsetloclist, 将错误覆盖"qiuckfix"
 let g:syntastic_always_populate_loc_list=1
@@ -204,6 +235,8 @@ let g:syntastic_check_on_w=1
 "
 " 是否自动弹出关闭错误窗口
 let g:syntastic_auto_loc_list=1
+" 自动跳转到地一个错误或警告处
+let g:syntastic_auto_jump = 1
 
 " 鼠标悬停显示错误
 let g:syntastic_enable_balloons=1
@@ -212,6 +245,14 @@ let g:syntastic_loc_list_height=5
 
 " vim-quick python代码检查插件
 let g:pyflakes_use_quickfix=1
+" let g:syntastic_python_checkers= ['pyflakes']
+
+let g:syntastic_cpp_include_dirs= ['/usr/include/']
+let g:syntastic_cpp_check_header = 1
+let g:syntastic_cpp_checkers= ['gcc']
+let g:syntastic_cpp_compiler= 'gcc'
+let g:syntastic_cpp_compiler_options= '-std=c++11'
+
 
 nmap <Leader>e :lopen<cr>
 nmap <Leader>c :lclose<cr>
@@ -305,7 +346,7 @@ set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
                     " ColorScheme "按<Leader>yy键依次修改颜色主题
 "-------- -------- -------- -------- -------- --------
 " set background=light
-set background=dark
+" set background=dark
 
 colorscheme default
 " colorscheme tir_black
@@ -347,8 +388,8 @@ function! ChangeColorScheme()
     elseif  g:csnum == 7
         :colorscheme koehler
         :let g:csnum = 8
-    elseif  g:csnm == 9
-        :colorscheme dracula
+    " elseif  g:csnm == 9
+        " :colorscheme dracula
     else
         :colorscheme default
         :let g:csnum = 0
@@ -692,7 +733,7 @@ endfunc
                     " Asyncrun.vim
 "-------- -------- -------- -------- -------- --------
 " 编译
-:noremap <F7> :AsyncRun gcc "%" -o "%<" <cr>
+" :noremap <F7> :AsyncRun gcc "%" -o "%<" <cr>
 
 
 "-------- -------- -------- -------- -------- --------
@@ -754,6 +795,10 @@ set tags+=/data/misc/software/misc./vim/stdcpp.tags
 set tags+=~/.vim/stdcpp.tags
 set tags+=~/.vim/sys_tags
 "
+"使用syntastic检查语法
+let g:ycm_register_as_syntastic_checker = 1
+let g:ycm_error_symbol='✗'
+let g:ycm_warning_symbol='⚠'
 "
 " YCM 集成 OmniCppComplete 补全引擎，设置其快捷键
 inoremap <leader>; <C-x><C-o>

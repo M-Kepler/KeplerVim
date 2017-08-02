@@ -8,3 +8,22 @@
 --regex-markdown=/^#{6}[ \t]*([^#]+.*)/.           \1/h,heading6/
 --regex-html = /id = \"([a-zA-Z0-9-+ )\"/\1/i,identifiers/
 --regex-html = /class= \"([a-zA-Z0-9-+ )\"/\1/c,classes/]]
+
+
+/* html.ctags */
+
+--langdef=html
+--langmap=html:.htm.html
+--regex-html=/<h1[^>]*>(.*)<\/h1>/\1/h,header/
+--regex-html=/<h2[^>]*>(.*)<\/h2>/. \1/h,header/
+--regex-html=/<h3[^>]*>(.*)<\/h3>/.   \1/h,header/
+--regex-html=/<h4[^>]*>(.*)<\/h4>/.     \1/h,header/
+--regex-html=/<h5[^>]*>(.*)<\/h5>/.       \1/h,header/
+--regex-html=/<h6[^>]*>(.*)<\/h6>/.         \1/h,header/
+--regex-html=/<([a-zA-Z][a-zA-Z0-9]*)[^>]*[ \t]+id[ \t]*=[ \t]*'([^']+)'/\1#\2/o,object/
+--regex-html=/<([a-zA-Z][a-zA-Z0-9]*)[^>]*[ \t]+id[ \t]*=[ \t]*"([^"]+)"/\1#\2/o,object/
+--regex-html=/<([a-zA-Z][a-zA-Z0-9]*)[^>]*[ \t]+id[ \t]*=[ \t]*([A-Za-z][A-Za-z0-9_:.-]*)[ \t>]/\1#\2/o,object/
+--regex-html=/<([a-zA-Z][a-zA-Z0-9]*)[^>]*[ \t]+class[ \t]*=[ \t]*'([^']+)'/\1.\2/c,class/
+--regex-html=/<([a-zA-Z][a-zA-Z0-9]*)[^>]*[ \t]+class[ \t]*=[ \t]*"([^"]+)"/\1.\2/c,class/
+--regex-html=/<([a-zA-Z][a-zA-Z0-9]*)[^>]*[ \t]+class[ \t]*=[ \t]*([A-Za-z][A-Za-z0-9_:.-]*)[ \t>]/\1.\2/c,class/
+

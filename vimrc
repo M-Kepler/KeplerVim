@@ -150,7 +150,7 @@ let g:equ=1
 if exists("g:equ")
     :inoremap << <c-r>=EqualSign('<<')<CR>
     :inoremap >> <c-r>=EqualSign('>>')<CR>
-    " :inoremap + <c-r>=EqualSign('+')<CR>
+    :inoremap + <c-r>=EqualSign('+')<CR>
     :inoremap - <c-r>=EqualSign('-')<CR>
     " :inoremap * <c-r>=EqualSign('*')<CR>
     :inoremap = <c-r>=EqualSign('=')<CR>
@@ -240,14 +240,13 @@ let g:syntastic_auto_jump = 1
 
 " 鼠标悬停显示错误
 let g:syntastic_enable_balloons=1
-
 let g:syntastic_loc_list_height=5
 
 " vim-quick python代码检查插件
 let g:pyflakes_use_quickfix=1
 " let g:syntastic_python_checkers= ['pyflakes']
 
-let g:syntastic_cpp_include_dirs= ['/usr/include/']
+" let g:syntastic_cpp_include_dirs= ['/usr/include/']
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_cpp_checkers= ['gcc']
 let g:syntastic_cpp_compiler= 'gcc'
@@ -286,47 +285,51 @@ set foldopen-=undo
 " to deal with it's slow when I swith insert to normal
 set ttimeoutlen=0
 
+
 "-------- -------- -------- -------- -------- --------
                     "title
 "-------- -------- -------- -------- -------- --------
-" function AddTitle()
-    " call append(0,"/***********************************************************")
-    " call append(1,"* Author       : M_Kepler")
-    " call append(2,"* EMail        : hellohuangjinjie@gmail.com")
-    " call append(2,"* EMail        : m_kepler@foxmail.com")
-    " call append(3,"* Last modified: ".strftime("%Y-%m-%d %H:%M:%S"))
-    " call append(4,"* Filename     : ".expand("%:t"))
-    " call append(5,"* Description  :")
-    " call append(6,"**********************************************************/")
-    " call append(7,"")
-    " echohl WarningMsg | echo "Successful in adding the copyright."|echohl None
-" endfunction
-" " update latest modified time & name
-" function UpdateTitle()
-    " normal m'
-    " execute '/* Last modified:/s@:.*$@\=strftime(": %Y-%m-%d %H:%M:%S")@'
-    " normal ''
-    " normal mk
-    " execute '/* Filename     :/s@:.*$@\=": ".expand("%:t")@'
-    " execute "noh"
-    " normal 'k
-    " echohl WarningMsg | echo "Successful in updating the copy right." | echohl None
-" endfunction
-" " 判断前10行代码里，是否有Last modified
-" function TitleDet()
-    " let n=1
-    " while n < 10
-        " let line = getline(n)
-        " if line =~'^\*\s*\S*Last\smodified:\S*.*$'
-            " call UpdateTitle()
-            " return
-        " endif
-        " let n = n + 1
-    " endwhile
-    " call AddTitle()
-" endfunction
+function AddTitle()
+    call append(0,"/***********************************************************")
+    call append(1,"* Author       : M_Kepler")
+    call append(2,"* EMail        : m_kepler@foxmail.com")
+    call append(3,"* Last modified: ".strftime("%Y-%m-%d %H:%M:%S"))
+    call append(4,"* Filename     : ".expand("%:t"))
+    call append(5,"* Description  :")
+    call append(6,"**********************************************************/")
+    call append(7,"")
+    echohl WarningMsg | echo "Successful in adding the copyright."|echohl None
+endfunction
 
-" map <C-i> :call TitleDet() <cr>
+function UpdateTitle()
+    normal m'
+    execute '/* Last modified:/s@:.*$@\=strftime(": %Y-%m-%d %H:%M:%S")@'
+    normal ''
+    normal mk
+    execute '/* Filename     :/s@:.*$@\=": ".expand("%:t")@'
+    execute "noh"
+    normal 'k
+    echohl WarningMsg | echo "Successful in updating the copyright." | echohl None
+endfunction
+
+function TitleDet()
+    let n=1
+    while n < 10
+        let line = getline(n)
+        if line =~'^\*\s*\S*Last\smodified:\S*.*$'
+            call UpdateTitle()
+            return
+        endif
+        let n = n + 1
+    endwhile
+    call AddTitle()
+endfunction
+
+nmap <leader>i :call TitleDet() <CR>
+
+
+
+
 
 
 source ~/.vim/bundles.vim
@@ -346,7 +349,7 @@ set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
                     " ColorScheme "按<Leader>yy键依次修改颜色主题
 "-------- -------- -------- -------- -------- --------
 " set background=light
-" set background=dark
+set background=dark
 
 colorscheme default
 " colorscheme tir_black
@@ -402,6 +405,7 @@ endfunction
 "-------- -------- -------- -------- -------- --------
 let g:airline_powerline_fonts=1
 let g:airline_theme='light'
+" let g:airline_theme='behelit'
 
 " 显示上面的buffer tab
 let g:airline#extensions#tabline#enabled = 1
@@ -555,18 +559,18 @@ let g:tagbar_type_markdown = {
             \ ]
             \ }
 let g:tagbar_type_html = {
-			\ 'ctagstype' : 'html',
-			\ 'kinds' : [
-			\ 'i:identifiers',
-			\ 'c:classes',
-			\ ],
-			\ }
+            \ 'ctagstype' : 'html',
+            \ 'kinds' : [
+            \ 'i:identifiers',
+            \ 'c:classes',
+            \ ],
+            \ }
 
 " tag for coffee
 if executable('coffeetags')
 	let g:tagbar_type_coffee = {
-				\ 'ctagsbin' : 'coffeetags',
-				\ 'ctagsargs' : '',
+                \ 'ctagsbin' : 'coffeetags',
+                \ 'ctagsargs' : '',
                 \ 'kinds' : [
                 \ 'f:functions',
                 \ 'o:object',
@@ -764,6 +768,9 @@ cmap w!! %!sudo tee >/dev/null %
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
+" Quickly Edit File
+nmap <silent> <leader>td :e ~/workspaces/todo.md<CR>
+
 " eggcache vim
 nnoremap ; :
 :command W w
@@ -869,3 +876,5 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 
+let tlist_html_settings = 'html;h:Headers;o:Objects(ID);c:Classes'
+let tlist_xhtml_settings = 'html;h:Headers;o:Objects(ID);c:Classes'

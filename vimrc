@@ -58,8 +58,8 @@ EOF
 " let g:vebugger_leader = ','
 
 syntax on
-" set wildmenu ?
-
+" vim自身命名行模式智能补全
+set wildmenu
 " 让vim可以使用系统的剪切板
 set clipboard=unnamed
 
@@ -148,13 +148,13 @@ vmap <silent> <Leader>fy <Plug>DictVSearch
 au FileType python inoremap <buffer>, ,<space>
 let g:equ=1
 if exists("g:equ")
-    :inoremap << <c-r>=EqualSign('<<')<CR>
-    :inoremap >> <c-r>=EqualSign('>>')<CR>
-    :inoremap + <c-r>=EqualSign('+')<CR>
-    :inoremap - <c-r>=EqualSign('-')<CR>
-    " :inoremap * <c-r>=EqualSign('*')<CR>
+    " :inoremap << <c-r>=EqualSign('<<')<CR>
+    " :inoremap >> <c-r>=EqualSign('>>')<CR>
+    " :inoremap + <c-r>=EqualSign('+')<CR>
+    " :inoremap - <c-r>=EqualSign('-')<CR>
+    " " :inoremap * <c-r>=EqualSign('*')<CR>
     :inoremap = <c-r>=EqualSign('=')<CR>
-    :inoremap += <c-r>=EqualSign('+=')<CR>
+    " :inoremap += <c-r>=EqualSign('+=')<CR>
 endif
 
 
@@ -316,12 +316,13 @@ source ~/.vim/bundles.vim
 set lines =25 columns=80
 " set lines =31 columns=110
 winpos 200 100
-
+" 禁止生成临时文件
 set nobackup
-set nowb
-set noswapfile
+" 在处理未保存或只读文件的时候，弹出确认
+set confirm                                                       " prompt when existing from an unsaved file
 " encoding dectection
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
+set encoding=utf8
 
 "-------- -------- -------- -------- -------- --------
                     " ColorScheme "按<Leader>yy键依次修改颜色主题
@@ -329,9 +330,10 @@ set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 " set background=light
 " set background=dark
 
+" colorscheme solarized
 " colorscheme default
-colorscheme tir_black
-" colorscheme space-vim-dark
+" colorscheme tir_black
+colorscheme space-vim-dark
 "
 " colorscheme molokai
 " colorscheme atom-dark-256
@@ -382,12 +384,15 @@ endfunction
                     " Air-line
 "-------- -------- -------- -------- -------- --------
 let g:airline_powerline_fonts=1
-let g:airline_theme='light'
+" let g:airline_theme='light'
+let g:airline_theme='luna'
 " let g:airline_theme='behelit'
 
 " 显示上面的buffer tab
 let g:airline#extensions#tabline#enabled = 1
-"
+" let g:airline#extensions#tabline#left_sep = ' '
+" let g:airline#extensions#tabline#left_alt_sep = '|'
+
 "-------- -------- -------- -------- -------- --------
                     " buffer
 "-------- -------- -------- -------- -------- --------
@@ -405,25 +410,20 @@ nnoremap <Leader>4 :b4<cr>
                     " quickfix
 "-------- -------- -------- -------- -------- --------
 
-
-
-
-
 " highlight current line
 au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
 set cursorline cursorcolumn
 
 " search
+set magic
 set incsearch
-"set highlight 	" conflict with highlight current line
 set ignorecase
 set smartcase
 
 " editor settings
 set history=1000
 set nocompatible
-set confirm                                                       " prompt when existing from an unsaved file
 set backspace=indent,eol,start                                    " More powerful backspacing
 set t_Co=256                                                      " Explicitly tell vim that the terminal has 256 colors "
 set mouse=a                                                       " use mouse in all modes
@@ -522,7 +522,9 @@ hi Tb_VisibleNormal ctermbg=252 ctermfg=235
 hi Tb_VisibleChanged guifg=green ctermbg=252 ctermfg=white
 
 
+" -------- -------- -------- -------- -------- --------
 " Tagbar
+" -------- -------- -------- -------- -------- --------
 let g:tagbar_left=0
 let g:tagbar_width=30
 let g:tagbar_autofocus = 1
@@ -747,7 +749,7 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Quickly Edit File
-nmap <silent> <leader>td :e ~/workspaces/todo.md<CR>
+nmap <silent> <leader>td :e ~/workspaces/TODO.md<CR>
 
 " eggcache vim
 nnoremap ; :
@@ -856,3 +858,62 @@ au Syntax * RainbowParenthesesLoadBraces
 
 let tlist_html_settings = 'html;h:Headers;o:Objects(ID);c:Classes'
 let tlist_xhtml_settings = 'html;h:Headers;o:Objects(ID);c:Classes'
+
+" -------- -------- -------- -------- -------- --------
+"                       vim-devicons
+" -------- -------- -------- -------- -------- --------
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
+
+
+" -------- -------- -------- -------- -------- --------
+"                       TMUX
+" -------- -------- -------- -------- -------- --------
+if exists('$TMUX')
+    set term=screen-256color
+endif
+
+" if exists('$ITERM_PROFILE')
+    " if exists('$TMUX')
+        " let &amp;t_SI = '<Esc>[3 q'
+        " let &amp;t_EI = '<Esc>[0 q'
+    " else
+        " let &amp;t_SI = '<Esc>]50;CursorShape=1x7'
+        " let &amp;t_EI = '<Esc>]50;CursorShape=0x7'
+    " endif
+" endif
+"
+"
+"
+" 在被分割的窗口间显示空白，便于阅读
+set fillchars=vert:\ ,stl:\ ,stlnc:\
+" 带有如下符号的单词不要被换行分割
+set iskeyword+=_,$,@,%,#,-
+" -------- -------- -------- -------- -------- --------
+"                       ctags
+" -------- -------- -------- -------- -------- --------
+set tags+=/usr/include/tags
+set tags+=~/.vim/systags
+set tags+=~/.vim/x86_64-linux-gnu-systags
+
+let g:ycm_collect_identifiers_from_tags_files = 1
+
+let g:ycm_semantic_triggers =  {
+  \   'c' : ['->', '.','re![_a-zA-z0-9]'],
+  \   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
+  \             're!\[.*\]\s'],
+  \   'ocaml' : ['.', '#'],
+  \   'cpp,objcpp' : ['->', '.', '::','re![_a-zA-Z0-9]'],
+  \   'perl' : ['->'],
+  \   'php' : ['->', '::'],
+  \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+  \   'ruby' : ['.', '::'],
+  \   'lua' : ['.', ':'],
+  \   'erlang' : [':'],
+  \ }
+let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&',']']
+
+
+" cpp_class_scope_highlight
+let g:cpp_class_scope_highlight = 1
+let g:cpp_experimental_template_highlight = 1
+let c_no_curly_error = 1

@@ -161,3 +161,9 @@ extract()
 }
 TMOUT=600
 
+
+# export CPLUS_INCLUDE_PATH
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.vim/gdbmgr/src
+
+export TERM="screen-256color"

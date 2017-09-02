@@ -150,5 +150,20 @@ Plugin 'tasklist.vim'
 " Plugin 'idanarye/vim-vebugger'
 
 
+Plugin 'ryanasis/vim-devicons'
+
+
+
+
+
+
+
+
+
+
+
 filetype plugin indent on     " required!
+
+
+
 

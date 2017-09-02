@@ -94,6 +94,7 @@ ln  -s ~/.vim/ctags ~/.ctags
 | `ack.vim` | [整个工程下全局代码搜索](https://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/13430) | `<Leader>a`
 | `dict.vim` | 翻译当前光标下的单词 | `<Leader>fy`
 | `tasklist` | `Eclipse`里的`TODO/FIXME/XXX` | `<Leader>tl`
+| `vim-devicons` | 目录文件显示图形字符|  |
 |  | `python`程序的调试| `Ctrl + d插入断点并进入调试` |
 |  | 打开粘贴模式 | `<Leader>p`
 |  | `C/C++/JAVA/PYTHON/SHELL` 一键编译 | `F6` |

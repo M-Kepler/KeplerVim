@@ -148,7 +148,7 @@ vmap <silent> <Leader>fy <Plug>DictVSearch
 au FileType python inoremap <buffer>, ,<space>
 let g:equ=1
 if exists("g:equ")
-    " :inoremap << <c-r>=EqualSign('<<')<CR>
+    :inoremap << <c-r>=EqualSign('<<')<CR>
     " :inoremap >> <c-r>=EqualSign('>>')<CR>
     " :inoremap + <c-r>=EqualSign('+')<CR>
     " :inoremap - <c-r>=EqualSign('-')<CR>

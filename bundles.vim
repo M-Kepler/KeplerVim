@@ -153,15 +153,6 @@ Plugin 'tasklist.vim'
 Plugin 'ryanasis/vim-devicons'
 
 
-
-
-
-
-
-
-
-
-
 filetype plugin indent on     " required!
 
 

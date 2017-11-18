@@ -90,6 +90,7 @@ ln  -s ~/.vim/ctags ~/.ctags
 | `fugitive` | [官网](https://github.com/tpope/vim-fugitive) | |
 | `Gundo` | 记录文档修改记录 | `<Leader>u`
 | `Ctrlp` | [快速打开文件](http://www.boiajs.com/2014/12/17/vim-ctrlp) | `<Leader>o`
+| `Leaderf` | [快速打开文件](https://github.com/Yggdroot/LeaderF),可以替代ctrlp| `<Leader>f`
 | `Emmet` | [HTML/CSS补全](http://www.iteye.com/news/27580) | `<Leader>h`
 | `ack.vim` | [整个工程下全局代码搜索](https://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/13430) | `<Leader>a`
 | `dict.vim` | 翻译当前光标下的单词 | `<Leader>fy`

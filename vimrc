@@ -195,41 +195,47 @@ let g:EasyMotion_leader_key = '<Leader>'
                     "ALE
 "-------- -------- -------- -------- -------- --------
 
+
 "-------- -------- -------- -------- -------- --------
                     "Syntastic
 "-------- -------- -------- -------- -------- --------
 
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
+" let g:syntastic_error_symbol='✗'
+" let g:syntastic_error_symbol='.'
+" let g:syntastic_warning_symbol='⚠'
 
 " 第一时间检查发现任何错误
-let g:syntastic_aggregate_errors=1
+" let g:syntastic_aggregate_errors=1
 " 自动调用:syntasticsetloclist, 将错误覆盖"qiuckfix"
-let g:syntastic_always_populate_loc_list=1
+" let g:syntastic_always_populate_loc_list=1
 
 " 打开文件或保存时显示错误提示
 " let g:syntastic_check_on_open=1
-let g:syntastic_check_on_w=1
+" let g:syntastic_check_on_w=1
 "
 " 是否自动弹出关闭错误窗口
-let g:syntastic_auto_loc_list=1
+" let g:syntastic_auto_loc_list=1
 " 自动跳转到地一个错误或警告处
-let g:syntastic_auto_jump = 1
+" let g:syntastic_auto_jump = 1
 
 " 鼠标悬停显示错误
-let g:syntastic_enable_balloons=1
-let g:syntastic_loc_list_height=5
+" let g:syntastic_enable_balloons=1
+" let g:syntastic_loc_list_height=5
 
 " vim-quick python代码检查插件
-let g:pyflakes_use_quickfix=1
-" let g:syntastic_python_checkers= ['pyflakes']
+" let g:pyflakes_use_quickfix=1
+". let g:syntastic_python_checkers= ['pyflakes']
 
 " let g:syntastic_cpp_include_dirs= ['/usr/include/']
-let g:syntastic_cpp_check_header = 1
-let g:syntastic_cpp_checkers= ['gcc']
-let g:syntastic_cpp_compiler= 'gcc'
-let g:syntastic_cpp_compiler_options= '-std=c++11'
+" let g:syntastic_cpp_check_header = 1
+" let g:syntastic_cpp_checkers= ['gcc']
+" let g:syntastic_cpp_compiler= 'gcc'
+" let g:syntastic_cpp_compiler_options= '-std=c++11'
 
+
+
+"-------- -------- -------- -------- -------- --------
+"-------- -------- -------- -------- -------- --------
 
 nmap <Leader>e :lopen<cr>
 nmap <Leader>c :lclose<cr>
@@ -331,9 +337,9 @@ set encoding=utf8
 " set background=dark
 
 " colorscheme solarized
-" colorscheme default
+colorscheme default
 " colorscheme tir_black
-colorscheme space-vim-dark
+" colorscheme space-vim-dark
 "
 " colorscheme molokai
 " colorscheme atom-dark-256
@@ -605,9 +611,26 @@ let g:SuperTabRetainCompletionType=2
 "-------- -------- -------- -------- -------- --------
                     " ctrlp
 "-------- -------- -------- -------- -------- --------
-let g:ctrlp_map = '<Leader>o'
+" let g:ctrlp_map = '<Leader>o'
 set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_Store  " MacOSX/Linux
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+" let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+
+
+"-------- -------- -------- -------- -------- --------
+                    " leaderf
+"-------- -------- -------- -------- -------- --------
+" <leader>f
+nnoremap <Leader>fcs :LeaderfColorscheme<CR>
+nnoremap <Leader>f? :LeaderfSelf<CR>
+nnoremap <Leader>fcs :LeaderfColorscheme<CR>
+nnoremap <Leader>fcs :LeaderfColorscheme<CR>
+nnoremap <Leader>fcs :LeaderfColorscheme<CR>
+nnoremap <Leader>fcs :LeaderfColorscheme<CR>
+nnoremap <Leader>fcs :LeaderfColorscheme<CR>
+nnoremap <Leader>fcs :LeaderfColorscheme<CR>
+
+
+
 
 " Keybindings for plugin toggle
 "绑定快捷键来激活or取消paste模式
@@ -637,35 +660,27 @@ nnoremap <leader>v V`]
 
 
 "-------- -------- -------- -------- -------- --------
-"C,C++,Fortran,Python,java,Latex,sh等按<F5>编译运行
+"C,C++,Fortran,Python,java,sh等按<F5>编译运行
+        " exec !g++ % -o %<"
+        " exec ! ./%<"
 "-------- -------- -------- -------- -------- --------
 map <F5> :call CompileAndRun()<CR>
 func! CompileAndRun()
     :cd %:p:h
     exec "w"
     if &filetype == 'c'
-        exec "!g++ % -o %<"
-        exec "! ./%<"
+        exec "AsyncRun!gcc % -o %<; time ./%<"
     elseif &filetype == 'cpp'
-        exec "!g++ % -o %<"
-        exec "! ./%<"
-    elseif &filetype == 'ncl'
-        exec "!ncl %"
+        exec "!g++ % -o %<; time ./%<"
     elseif &filetype == 'html'
-        exec "!google-chrome %"
+        exec "AsyncRun!google-chrome %"
     elseif &filetype == 'java'
         exec "!javac %"
         exec "!java %<"
-    elseif &filetype == 'fortran'
-        exec "!gfortran % -o %<"
-        exec "! ./%<"
     elseif &filetype == 'python'
-        exec "!python3 %"
+        exec "Asyncrun! python3 %; time ./%<"
     elseif &filetype == 'markdown'
         :MarkdownPreview
-    elseif &filetype == 'tex'
-        exec "!xelatex -shell-escape %<"
-        exec "!xelatex -shell-escape %<"
     elseif &filetype == 'sh'
         :!sh ./%
     endif
@@ -720,6 +735,8 @@ endfunc
 " :noremap <F7> :AsyncRun gcc "%" -o "%<" <cr>
 
 
+
+
 "-------- -------- -------- -------- -------- --------
                     " Useful Functions
 "-------- -------- -------- -------- -------- --------
@@ -750,6 +767,13 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Quickly Edit File
 nmap <silent> <leader>td :e ~/workspaces/TODO.md<CR>
+nmap <silent> <leader>bd :e ~/.vim/bundles.vim<CR>
+
+
+
+
+
+
 
 " eggcache vim
 nnoremap ; :

@@ -8,6 +8,10 @@ call vundle#rc()
 " required!
 Bundle 'gmarik/vundle'
 " Bundle 'fholgado/minibufexpl.vim'
+"
+"
+"
+Plugin 'Yggdroot/LeaderF'
 
 "------------------
 " Code Completions
@@ -71,7 +75,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
 Bundle 'mileszs/ack.vim'
 " Bundle 'dyng/ctrlsf.vim'
-Bundle 'kien/ctrlp.vim'
+" Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-fugitive'
 
 " Bundle 'Lokaltog/vim-powerline'
@@ -79,7 +83,7 @@ Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 "
 " syntax check by :Error in vim
-Bundle 'scrooloose/syntastic'
+" Bundle 'scrooloose/syntastic'
 " Bundle 'w0rp/ale'
 Bundle 'nvie/vim-flake8'
 
@@ -141,7 +145,7 @@ Plugin 'tir_black'
 Plugin 'iamcco/dict.vim'
 
 " asyncrun
-" Plugin 'skywind3000/asyncrun.vim'
+Plugin 'skywind3000/asyncrun.vim'
 
 " todo fixme xxx
 Plugin 'tasklist.vim'

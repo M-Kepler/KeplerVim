@@ -26,17 +26,19 @@
 ![preview](./preview.png)
 
 
-> 我的vim配置是来自[skwp/dotfiles](https://github.com/skwp/dotfiles)的，只是做了自己的个性化更改,
-> 去掉了很多不必要的插件   
-> 使用的````YCM````编译后的文件,[网盘下载](https://pan.baidu.com/s/1jHOquKe)  
-> 这个配置主要用来写````c++/python/java/shell/html5````这些，配置了````F5````一键运行
+> 修改自[humiaozuzu/dot-vimrc](hhttps://github.com/humiaozuzu/dot-vimrc)  
+> 使用的`YCM`编译后的文件,[网盘下载](https://pan.baidu.com/s/1jHOquKe)  
 
 
 ## 安装
+
 0. 编译安装vim8.0
 [博客](http://blog.csdn.net/a464057216/article/details/52821171)
+
 1. 下载本项目
-<br/>`git clone https://github.com/M-Kepler/Keplervim.git`
+```
+git clone https://github.com/M-Kepler/Keplervim.git
+```
 
 2. 把文件夹放到 Home 目录下, 并改名为`.vim`
 ```
@@ -46,26 +48,32 @@ ln -s ~/.vim/vimrc ~/.vimrc
 ```
 
 3. 安装插件管理```Vundle```
-</br>`git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle`
+```
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+```
 
 4. 安装插件  
-先去编辑 ```~/.vim/bundles.vim``` 把 ```Plugin 'Valloric/YouCompleteMe'```注释掉, 然后保存退出, 终端输入`vim`, 不管提示的错误，
-一直回车进入到界面就行, 输入括号里的内容```:BundleInstall``` 直到所有插件安装正确, 安装出错就再执行一次.  
-这些插件安装完后在把 ~/.vim/bundles.vim 里的Plugin 'Valloric/YouCompeteMe' 的注释去掉就可以了
+
+先去编辑 `~/.vim/bundles.vim` 把 `Plugin 'Valloric/YouCompleteMe'` 注释掉, 然后`:x`保存退出, 终端输入`vim`, 不管提示的错误，
+一直回车进入到界面就行, 输入命令```:BundleInstall``` 直到所有插件安装正确, 安装出错就再执行一次.  
+这些插件安装完后再把 ~/.vim/bundles.vim 里的Plugin 'Valloric/YouCompeteMe' 的注释去掉就可以了
 
 5. 显示md文档的目录结构
+
 > 创建ctags的软链到home目录下
 ```
 ln  -s ~/.vim/ctags ~/.ctags
 ```
 
+6. 系统环境需求
 
 
-6. ** 注** :
+* ** 注** :
+
 > 1. 由于自己编译YCM太麻烦了，而且不一定能成功，反正我的电脑上没成功.  
    所以下载别人编译后的YCM，然后放到 ~/.vim/bundle/ 下就可以了.  
    如果输入```vim```出错提示与```EOF```相关, 就先把```.vimrc``` 23 到 29 行注释掉, 这几行是为了补全```python```虚拟环境里的库用的
-> 2. 想用漂亮的airline的话,去搜索一下就知道了, 需要安装特定的字体, [博客](http://blog.csdn.net/the_victory/article/details/50638810)
+> 2. 想用漂亮的airline的话,需要安装特定的字体, [博客](http://blog.csdn.net/the_victory/article/details/50638810)
 
 
 ## 特色和快捷键

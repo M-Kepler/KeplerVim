@@ -247,6 +247,7 @@ nmap <Leader>p :lpre<cr>
 "开启折叠，并设置空格开关
 set foldenable
 set foldmethod=indent
+" set foldmethod=syntax
 "设置折叠区宽度
 set foldcolumn=0
 "设置折叠层数
@@ -315,11 +316,10 @@ nmap <leader>i :call TitleDet() <CR>
 
 
 
-
 source ~/.vim/bundles.vim
 
 "set windows size
-set lines =25 columns=80
+" set lines =25 columns=80
 " set lines =31 columns=110
 winpos 200 100
 " 禁止生成临时文件
@@ -337,9 +337,9 @@ set encoding=utf8
 " set background=dark
 
 " colorscheme solarized
-colorscheme default
+" colorscheme default
 " colorscheme tir_black
-" colorscheme space-vim-dark
+colorscheme space-vim-dark
 "
 " colorscheme molokai
 " colorscheme atom-dark-256
@@ -671,7 +671,8 @@ func! CompileAndRun()
     if &filetype == 'c'
         exec "AsyncRun!gcc % -o %<; time ./%<"
     elseif &filetype == 'cpp'
-        exec "!g++ % -o %<; time ./%<"
+        exec "AsyncRun!g++ % -o %<; time ./%<"
+        " exec "!g++ % -o %<; time ./%<"
     elseif &filetype == 'html'
         exec "AsyncRun!google-chrome %"
     elseif &filetype == 'java'
@@ -788,7 +789,7 @@ nnoremap ; :
 "-------- -------- -------- -------- -------- --------
                     " YouCompleteMe
 "-------- -------- -------- -------- -------- --------
-
+let g:deoplete#enable_at_startup = 1
 " YCM 补全菜单配色
 " 菜单
 " highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
@@ -888,13 +889,6 @@ let tlist_xhtml_settings = 'html;h:Headers;o:Objects(ID);c:Classes'
 " -------- -------- -------- -------- -------- --------
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
 
-
-" -------- -------- -------- -------- -------- --------
-"                       TMUX
-" -------- -------- -------- -------- -------- --------
-if exists('$TMUX')
-    set term=screen-256color
-endif
 
 " if exists('$ITERM_PROFILE')
     " if exists('$TMUX')

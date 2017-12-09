@@ -9,9 +9,13 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 " Bundle 'fholgado/minibufexpl.vim'
 "
+" ====================================================
 "
 "
+"
+" 快速打开文件，替换ctrlp
 Plugin 'Yggdroot/LeaderF'
+" Bundle 'kien/ctrlp.vim'
 
 "------------------
 " Code Completions
@@ -23,6 +27,7 @@ Plugin 'Yggdroot/LeaderF'
 
 
 Plugin 'Valloric/YouCompleteMe'
+" Plugin 'shougo/deoplete.nvim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets' " 这个是作为ultisnips的配置文件来的
 
@@ -44,14 +49,15 @@ Bundle 'ervandew/supertab'
 "------------------
 Bundle 'garbas/vim-snipmate'
 "Bundle 'honza/vim-snippets'
-    "------ snipmate dependencies -------
+" ------ snipmate 依赖组件 ------
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 
 "-----------------
 " Fast navigation
 "-----------------
-Bundle 'edsono/vim-matchit'
+" 标签跳转，vim自带了%
+" Bundle 'edsono/vim-matchit'
 Bundle 'Lokaltog/vim-easymotion'
 
 "--------------
@@ -60,11 +66,11 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-surround'
 " 注释
 Bundle 'scrooloose/nerdcommenter'
-" 历史编辑
+" 编辑当前文件的历史记录
 Bundle 'sjl/gundo.vim'
-" 对齐
-Bundle 'godlygeek/tabular'
-" 缩进 (http://www.tuicool.com/articles/2yy6ze)
+" 对齐, 好像用处不大
+" Bundle 'godlygeek/tabular'
+" 缩进
 Bundle 'nathanaelkane/vim-indent-guides'
 
 "--------------
@@ -73,18 +79,21 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'scrooloose/nerdtree'
 " Bundle 'humiaozuzu/TabBar'
 Bundle 'majutsushi/tagbar'
+" 项目里全局搜索字符串
 Bundle 'mileszs/ack.vim'
 " Bundle 'dyng/ctrlsf.vim'
-" Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-fugitive'
+" Bundle 'tpope/vim-fugitive'
 
 " Bundle 'Lokaltog/vim-powerline'
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 "
+" 语法检查,ycm似乎自带了
 " syntax check by :Error in vim
 " Bundle 'scrooloose/syntastic'
 " Bundle 'w0rp/ale'
+" python语法检查
+" python-mode
 Bundle 'nvie/vim-flake8'
 
 " 标记无效空格
@@ -94,7 +103,7 @@ Bundle 'bronson/vim-trailing-whitespace'
 " Other Utils
 "-------------
 " Bundle 'humiaozuzu/fcitx-status'
-Bundle 'nvie/vim-togglemouse'
+" Bundle 'nvie/vim-togglemouse'
 
 
 				" Syntax/Indent for language enhancement
@@ -105,10 +114,10 @@ Bundle 'nvie/vim-togglemouse'
 "Bundle 'digitaltoad/vim-jade'
 
 				"------- web frontend ----------
-Bundle 'othree/html5.vim'
+Bundle 'InfoGeeker/html5.vim'
 " Bundle 'tpope/vim-haml'
 " Bundle 'pangloss/vim-javascript'
-Bundle 'kchmck/vim-coffee-script'
+" Bundle 'kchmck/vim-coffee-script'
 " Bundle 'nono/jquery.vim'
 " Bundle 'groenewege/vim-less'
 " Bundle 'wavded/vim-stylus'
@@ -127,6 +136,7 @@ Plugin 'mzlogin/vim-markdown-toc'
 " Bundle 'fatih/vim-go'
 
 "------- FPs ------
+" 多彩括号
 Bundle 'kien/rainbow_parentheses.vim'
 " Bundle 'wlangstroth/vim-racket'
 " Bundle 'vim-scripts/VimClojure'
@@ -136,15 +146,15 @@ Bundle 'kien/rainbow_parentheses.vim'
 " Color Schemes
 "-------------- -------------- -------------- -------------- --------------
 Plugin 'crusoexia/vim-dracula'
-Plugin 'ciaranm/inkpot'
-Plugin 'jpo/vim-railscasts-theme'
-Plugin 'tir_black'
+" Plugin 'ciaranm/inkpot'
+" Plugin 'jpo/vim-railscasts-theme'
+" Plugin 'tir_black'
 
-"-------------- -------------- -------------- -------------- --------------
-"translation
+" -------------- -------------- -------------- -------------- --------------
+" 翻译
 Plugin 'iamcco/dict.vim'
 
-" asyncrun
+" 异步运行
 Plugin 'skywind3000/asyncrun.vim'
 
 " todo fixme xxx
@@ -154,11 +164,11 @@ Plugin 'tasklist.vim'
 " Plugin 'idanarye/vim-vebugger'
 
 
-Plugin 'ryanasis/vim-devicons'
+" 文字图标
+Plugin 'ryanoasis/vim-devicons'
+
+
 
 
 filetype plugin indent on     " required!
-
-
-
 

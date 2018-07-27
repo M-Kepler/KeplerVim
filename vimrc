@@ -310,17 +310,12 @@ function TitleDet()
     call AddTitle()
 endfunction
 
-nmap <leader>i :call TitleDet() <CR>
-
-
-
-
+nmap <leader>3 :call TitleDet() <CR>
 
 source ~/.vim/bundles.vim
 
 "set windows size
 " set lines =25 columns=80
-" set lines =31 columns=110
 winpos 200 100
 " 禁止生成临时文件
 set nobackup
@@ -337,9 +332,9 @@ set encoding=utf8
 " set background=dark
 
 " colorscheme solarized
-" colorscheme default
 " colorscheme tir_black
 colorscheme space-vim-dark
+" colorscheme default
 "
 " colorscheme molokai
 " colorscheme atom-dark-256
@@ -620,14 +615,14 @@ set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_S
                     " leaderf
 "-------- -------- -------- -------- -------- --------
 " <leader>f
-nnoremap <Leader>fcs :LeaderfColorscheme<CR>
-nnoremap <Leader>f? :LeaderfSelf<CR>
-nnoremap <Leader>fcs :LeaderfColorscheme<CR>
-nnoremap <Leader>fcs :LeaderfColorscheme<CR>
-nnoremap <Leader>fcs :LeaderfColorscheme<CR>
-nnoremap <Leader>fcs :LeaderfColorscheme<CR>
-nnoremap <Leader>fcs :LeaderfColorscheme<CR>
-nnoremap <Leader>fcs :LeaderfColorscheme<CR>
+" nnoremap <Leader>fcs :LeaderfColorscheme<CR>
+" nnoremap <Leader>f? :LeaderfSelf<CR>
+" nnoremap <Leader>fcs :LeaderfColorscheme<CR>
+" nnoremap <Leader>fcs :LeaderfColorscheme<CR>
+" nnoremap <Leader>fcs :LeaderfColorscheme<CR>
+" nnoremap <Leader>fcs :LeaderfColorscheme<CR>
+" nnoremap <Leader>fcs :LeaderfColorscheme<CR>
+" nnoremap <Leader>fcs :LeaderfColorscheme<CR>
 
 
 
@@ -664,22 +659,30 @@ nnoremap <leader>v V`]
         " exec !g++ % -o %<"
         " exec ! ./%<"
 "-------- -------- -------- -------- -------- --------
+" quickfix有内容则自动弹出
+augrou vimrc
+    autocmd QuickFixCmdPost * botright copen 8
+augroup end
+" 很多快捷键都是<leader>+字母，这样有点慢
+:noremap <leader>1 :call asyncrun#quickfix_toggle(8,1)<cr>
+:noremap <leader>2 :call asyncrun#quickfix_toggle(8,0)<cr>
+
 map <F5> :call CompileAndRun()<CR>
 func! CompileAndRun()
     :cd %:p:h
     exec "w"
     if &filetype == 'c'
-        exec "AsyncRun!gcc % -o %<; time ./%<"
+        exec "AsyncRun! gcc % -o %<; time ./%<"
     elseif &filetype == 'cpp'
-        exec "AsyncRun!g++ % -o %<; time ./%<"
-        " exec "!g++ % -o %<; time ./%<"
+        exec "AsyncRun! g++ % -o %<; time ./%<"
     elseif &filetype == 'html'
         exec "AsyncRun!google-chrome %"
     elseif &filetype == 'java'
         exec "!javac %"
         exec "!java %<"
     elseif &filetype == 'python'
-        exec "Asyncrun! python3 %; time ./%<"
+        " exec "Asyncrun! python3 %; time ./%<"
+        exec "python3 %<"
     elseif &filetype == 'markdown'
         :MarkdownPreview
     elseif &filetype == 'sh'

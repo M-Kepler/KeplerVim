@@ -14,8 +14,8 @@ Bundle 'gmarik/vundle'
 "
 "
 " 快速打开文件，替换ctrlp
-Plugin 'Yggdroot/LeaderF'
-" Bundle 'kien/ctrlp.vim'
+" Plugin 'Yggdroot/LeaderF'
+Bundle 'ctrlpvim/ctrlp.vim'
 
 "------------------
 " Code Completions
